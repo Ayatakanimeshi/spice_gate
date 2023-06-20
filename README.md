@@ -100,4 +100,4 @@ README〜ER 図作成：6/20 〆切
 - Places API
 
 ◆ 画面遷移図
-https://www.figma.com/file/fYzAyDoPso8vdA2N51u7HF/%E7%84%A1%E9%A1%8C?type=design&node-id=0%3A1&t=1yq2bgSI771C3wKY-1
+https://www.figma.com/file/fYzAyDoPso8vdA2N51u7HF/%E7%84%A1%E9%A1%8C?type=design&node-id=0%3A1&t=48djgnds5CMvVSbH-1
