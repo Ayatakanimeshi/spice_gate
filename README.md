@@ -49,7 +49,7 @@
 - 閲覧者ユーザー
 
   - 投稿を閲覧できる
-    - 店名・都道府県・タイトル・投稿者・投稿日時・カレーの辛さレベル・カレーの画像を閲覧できる
+    - 店名・都道府県・タイトル・投稿者・投稿日時・カレーの辛さレベル・カレー gi の画像を閲覧できる
     - 投稿にコメント・いいねをすることができる
   - お店情報を閲覧できる
     - 店名・都道府県・営業時間、定休日、アクセス方法、お店の説明、お店の画像を閲覧できる
@@ -100,4 +100,4 @@ README〜ER 図作成：6/20 〆切
 - Places API
 
 ◆ 画面遷移図
-https://www.figma.com/file/fYzAyDoPso8vdA2N51u7HF/%E7%84%A1%E9%A1%8C?type=design&node-id=0%3A1&t=1yq2bgSI771C3wKY-1
+https://www.figma.com/file/fYzAyDoPso8vdA2N51u7HF/%E7%84%A1%E9%A1%8C?type=design&node-id=0%3A1&t=48djgnds5CMvVSbH-1
