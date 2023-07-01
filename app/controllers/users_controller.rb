@@ -21,10 +21,10 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       
       if @user.save
-        auto_login(@user)
-        redirect_to users_path
+        redirect_to login_path
       else
         render :new
+        flash.now[:danger] = "登録に失敗しました"
       end
     end
     
@@ -39,7 +39,7 @@ class UsersController < ApplicationController
     def update
       @user = current_user
       
-      if @user.update_attributes(user_params)
+      if @user.update(user_params)
         redirect_to users_path
       else
         render :edit
@@ -54,7 +54,7 @@ class UsersController < ApplicationController
     private
     
     def user_params
-      params.require(:user).permit(:name, :email, :password)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :live_prefecture, :tolerance, :profile_img)
     end
   end
   
