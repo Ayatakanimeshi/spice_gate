@@ -35,6 +35,8 @@ gem "sorcery"
 gem "mini_magick"
 gem "carrierwave"
 
+gem "ransack"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

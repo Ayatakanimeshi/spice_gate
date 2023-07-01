@@ -1,0 +1,7 @@
+<!-- 検索フォーム -->
+<%= search_form_for @q, url: url, class: "d-flex" do |f| %>
+  <%= f.search_field :title_or_body_cont, class: 'form-control me-2' ,id: 'search_field_of_post', placeholder: '投稿' %>
+  <%= f.search_field :comments_body_cont, class: 'form-control me-2' ,id: 'search_field_of_comment', placeholder: 'コメント' %>
+  <%= f.search_field :user_name_cont, class: 'form-control me-2' ,id: 'search_field_of_user', placeholder: 'ユーザー' %>
+  <%= f.submit 'Search', class: 'btn btn-outline-success' %>
+<% end %>
