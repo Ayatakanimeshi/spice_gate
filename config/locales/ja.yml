@@ -1,0 +1,13 @@
+ja:
+  users:
+    new:
+      nickname: "ニックネーム"
+      email: "メールアドレス"
+      password: "パスワード"
+      password_confirmation: "パスワード（確認）"
+      age: "年代"
+      prefecture: "都道府県"
+      tolerance: "辛さ耐性の自己評価"
+      profile_image: "プロフィール画像"
+      register: "登録"
+      login_page: "ログインページへ"
