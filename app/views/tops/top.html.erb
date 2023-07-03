@@ -1,0 +1,16 @@
+<div class="hero h-screen w-screen flex items-center justify-center relative">
+  <div class="flex items-center justify-center"> <!-- 追加 -->
+    <%= image_tag("At-shirt0910.jpg", alt: "", width: "50%", class: "mx-auto") %>
+  </div> <!-- 追加 -->
+  <p class="text-3xl text-red-900 absolute top-12 left-0">シンプルな蟹</p>
+</div>
+
+<div class="fixed bottom-0 w-full bg-gray-100">
+  <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+    <p class="text-center sm:text-left">© 2023 — 
+      <a href="<%= posts_path %>" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@投稿一覧</a>
+      <span class="mx-2">|</span>
+      <a href="<%= stores_path %>" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@店舗一覧</a>
+    </p>
+  </div>
+</div>
