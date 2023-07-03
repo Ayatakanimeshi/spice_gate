@@ -21,7 +21,8 @@ class UsersController < ApplicationController
       @user = User.new(user_params)
       
       if @user.save
-        redirect_to login_path
+        auto_login(@user)
+        redirect_to root_path
       else
         render :new
         flash.now[:danger] = "登録に失敗しました"
