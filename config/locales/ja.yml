@@ -20,3 +20,13 @@ ja:
       submit: "ログイン"
       signup_page: "新規登録ページへ"
       forgot_password: "パスワードを忘れた方はこちら"
+
+  posts:
+    new:
+      new_posts: "新規投稿"
+      title: "タイトル"
+      shop_prefecture: "店の都道府県"
+      spiciness: "スパイシーさ"
+      curry_img: "カレーの画像"
+      submit: "投稿する"
+      back_to_index_link: "投稿一覧に戻る"

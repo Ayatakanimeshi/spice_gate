@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_27_192632) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_03_151628) do
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.string "shop_prefecture", null: false
+    t.string "title", null: false
+    t.integer "spiciness", null: false
+    t.string "curry_img"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_posts_on_shop_id"
+    t.index ["user_id"], name: "index_posts_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
@@ -25,4 +38,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_27_192632) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "posts", "shops"
+  add_foreign_key "posts", "users"
 end
