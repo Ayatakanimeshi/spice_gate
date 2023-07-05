@@ -17,7 +17,7 @@
             </div>
             <div class="mb-4">
                 <%= form.label :closed, t('activerecord.attributes.shop.closed') %>
-                <% Shop::DAYS_OF_WEEK.each do |day| %>
+                <% Shop::DAYS_OF_THE_WEEK.each do |day| %>
                   <%= check_box_tag 'shop[closed_days][]', day, @shop.closed_days.include?(day), class: "mr-2" %>
                 <%= label_tag day, day, class: "mr-4" %>
                 <% end %>
