@@ -1,0 +1,14 @@
+<div class="flex flex-col items-center justify-center h-screen">
+  <h1 class="text-4xl font-bold mb-4">ようこそ、SpiceCurryの世界へ</h1>
+
+  <div class="mb-8">
+    <p>スパイスカレーとは何か、どういったカレーか</p>
+    <p>健康や精神状態などにどういった効果があるか</p>
+    <p>他の食事と比較して特異なメリットや部分などはどういったものか</p>
+  </div>
+
+  <div class="flex">
+    <%= link_to "新規登録", new_user_path , class: "mr-2 py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:bg-blue-600 focus:outline-none cursor-pointer transition-colors duration-300" %>
+    <%= link_to "ログイン", login_path , class: "py-2 px-4 bg-blue-500 text-white rounded-lg hover:bg-blue-600 focus:bg-blue-600 focus:outline-none cursor-pointer transition-colors duration-300" %>
+  </div>
+</div>

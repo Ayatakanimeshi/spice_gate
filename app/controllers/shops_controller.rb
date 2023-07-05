@@ -1,5 +1,6 @@
 class ShopsController < ApplicationController
     before_action :set_shop, only: [:show]
+    skip_before_action :require_login, only: [:index, :show]
   
     def new
       @shop = Shop.new

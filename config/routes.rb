@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   resources :shops, only: [:new, :create, :show, :index]
   root 'tops#top'
 
+  get 'firstpage' => 'firstpages#firstpage'
+
   get 'login' => 'user_sessions#new'
   post 'login' => 'user_sessions#create'
   delete 'logout' => 'user_sessions#destroy'
