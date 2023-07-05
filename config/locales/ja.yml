@@ -1,4 +1,16 @@
 ja:
+  activerecord:
+    models:
+      shop: 店舗
+    attributes:
+      shop:
+        name: 名前
+        prefecture: 所在地
+        business_hour: 営業時間
+        closed: 定休日
+        shop_img: 店舗画像
+        latitude: 緯度
+        longitude: 経度
   users:
     new:
       nickname: "ニックネーム"
@@ -30,3 +42,11 @@ ja:
       curry_img: "カレーの画像"
       submit: "投稿する"
       back_to_index_link: "投稿一覧に戻る"
+  shops:
+    new:
+      title: 新規店舗登録
+      submit: 投稿
+    index:
+      title: 店舗一覧
+    show:
+      title: 店舗詳細

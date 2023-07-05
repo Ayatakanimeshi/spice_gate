@@ -9,11 +9,11 @@
             </div>
             <div class="mb-4">
                 <%= form.label :shop_prefecture, t('posts.new.shop_prefecture') %>
-                <%= form.text_field :shop_prefecture, class: "border-2 border-black px-3 py-2 w-full" %>
+                <%= form.select :shop_prefecture, Post.shop_prefectures.keys.map {|k| [t("enums.post.shop_prefecture.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
                 <%= form.label :spiciness, t('posts.new.spiciness') %>
-                <%= form.number_field :spiciness, in: 1..5, class: "border-2 border-black px-3 py-2 w-full" %>
+                <%= form.select :spiciness, Post.spicinesses.map {|k, v| [t("enums.post.spiciness.#{k}"), v]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
                 <%= form.label :curry_img, t('posts.new.curry_img') %>

@@ -1,0 +1,5 @@
+<h1>店舗一覧</h1>
+
+<% @shops.each do |shop| %>
+  <h2><%= link_to shop.name, shop_path(shop) %></h2>
+<% end %>
