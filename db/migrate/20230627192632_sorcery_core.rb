@@ -6,7 +6,7 @@ class SorceryCore < ActiveRecord::Migration[7.0]
       t.string :salt
       t.string :name, null: false
       t.integer :age, null: false
-      t.string :live_prefecture, null: false
+      t.integer :live_prefecture, null: false
       t.string :profile_img
       t.integer :tolerance, null: false
 

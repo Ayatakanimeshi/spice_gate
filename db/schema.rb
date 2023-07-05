@@ -10,11 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_07_03_151628) do
+ActiveRecord::Schema[7.0].define(version: 2023_07_05_075337) do
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "shop_id", null: false
-    t.string "shop_prefecture", null: false
+    t.integer "shop_prefecture", null: false
     t.string "title", null: false
     t.integer "spiciness", null: false
     t.string "curry_img"
@@ -24,13 +24,25 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_03_151628) do
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 
+  create_table "shops", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "prefecture", null: false
+    t.string "business_hour"
+    t.string "closed"
+    t.string "shop_img"
+    t.float "latitude"
+    t.float "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "crypted_password"
     t.string "salt"
     t.string "name", null: false
     t.integer "age", null: false
-    t.string "live_prefecture", null: false
+    t.integer "live_prefecture", null: false
     t.string "profile_img"
     t.integer "tolerance", null: false
     t.datetime "created_at", null: false
