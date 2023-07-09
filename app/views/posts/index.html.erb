@@ -1,14 +1,17 @@
-<p style="color: green"><%= notice %></p>
+<div class="flex justify-center items-center mt-48 mx-auto">
+  <div class="w-full max-w-2xl">
+    <div class="text-center mb-4">
+      <h1><%= t('posts.index.title') %></h1>
+      <%= link_to t('posts.index.new_post_link'), new_post_path, class: "btn btn-primary mb-4" %>
 
-<h1>Posts</h1>
-
-<div id="posts">
-  <% @posts.each do |post| %>
-    <%= render post %>
-    <p>
-      <%= link_to "Show this post", post %>
-    </p>
-  <% end %>
+      <% @posts.each do |post| %>
+        <div class="border-2 border-black p-4 mb-4">
+          <h2><%= link_to post.title, post_path(post) %></h2>
+          <p><%= t('posts.index.shop_prefecture', shop_prefecture: t("enums.post.shop_prefecture.#{post.shop_prefecture}")) %></p>
+          <p><%= t('posts.index.spiciness', spiciness: t("enums.post.spiciness.#{post.spiciness}")) %></p>
+          <%= image_tag post.curry_img if post.curry_img.present? %>
+        </div>
+      <% end %>
+    </div>
+  </div>
 </div>
-
-<%= link_to "New post", new_post_path %>

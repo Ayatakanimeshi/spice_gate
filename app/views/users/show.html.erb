@@ -1,0 +1,19 @@
+<div class="flex justify-center items-center mt-48 mx-auto">
+  <div class="w-full max-w-xl">
+    <div class="text-center mb-4">
+      <h1><%= @user.name %></h1>
+      <p><%= t('users.show.email', email: @user.email) %></p>
+      <p><%= t('users.show.age', age: @user.human_attribute_enum_value(:age)) %></p>
+      <p><%= t('users.show.prefecture', prefecture: @user.human_attribute_enum_value(:live_prefecture)) %></p>
+      <p><%= t('users.show.tolerance', tolerance: @user.human_attribute_enum_value(:tolerance)) %></p>
+      <%= image_tag @user.profile_img if @user.profile_img.present? %>
+
+      <div class="actions mt-4">
+        <%= link_to t('users.show.edit_link'), edit_user_path(@user), class: "btn btn-primary mr-2" %>
+      </div>
+      <div class='text-center mt-2'>
+          <%= link_to t('users.show.back_to_index_link'), users_path %>
+      </div>
+    </div>
+  </div>
+</div>
