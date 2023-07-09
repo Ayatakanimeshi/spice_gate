@@ -1,24 +1,38 @@
-// Entry point for the build script in your package.json
 document.addEventListener("DOMContentLoaded", function () {
-  const profileImageInput = document.getElementById("profileImage");
-  const imagePreview = document.getElementById("imagePreview");
+  // 入力とプレビューエレメントのペアを定義
+  const imageElements = [
+    { inputId: "profileImage", previewId: "profileImagePreview" },
+    { inputId: "curryImage", previewId: "curryImagePreview" },
+  ];
 
-  profileImageInput.addEventListener("change", function () {
-    const file = profileImageInput.files[0];
-    const reader = new FileReader();
+  imageElements.forEach(({ inputId, previewId }) => {
+    const inputElement = document.getElementById(inputId);
+    const previewElement = document.getElementById(previewId);
 
-    reader.onload = function (e) {
-      const img = document.createElement("img");
-      img.src = e.target.result;
-      img.classList.add("preview-image");
-
-      if (imagePreview.firstChild) {
-        imagePreview.removeChild(imagePreview.firstChild);
-      }
-
-      imagePreview.appendChild(img);
-    };
-
-    reader.readAsDataURL(file);
+    if (inputElement && previewElement) {
+      inputElement.addEventListener("change", function () {
+        previewImage(inputElement, previewElement);
+      });
+    }
   });
 });
+
+function previewImage(input, imagePreview) {
+  const file = input.files[0];
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    const img = document.createElement("img");
+    img.src = e.target.result;
+    img.classList.add("preview-image");
+
+    // Remove any existing images
+    while (imagePreview.firstChild) {
+      imagePreview.removeChild(imagePreview.firstChild);
+    }
+
+    imagePreview.appendChild(img);
+  };
+
+  reader.readAsDataURL(file);
+}

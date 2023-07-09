@@ -1,5 +1,5 @@
 class ShopsController < ApplicationController
-    before_action :set_shop, only: [:show]
+    before_action :set_shop, only: [:show, :edit, :update, :destroy]
     skip_before_action :require_login, only: [:index, :show]
   
     def new
@@ -29,7 +29,7 @@ class ShopsController < ApplicationController
     end
   
     def shop_params
-      params.require(:shop).permit(:name, :prefecture, :business_hour, :closed, :shop_img, :latitude, :longitude)
+      params.require(:shop).permit(:name, :prefecture, :business_hour, closed_days: [], :shop_img, :latitude, :longitude)
     end
   end
   

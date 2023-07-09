@@ -1,6 +1,6 @@
 <div class="flex justify-center items-center mt-48 mx-auto">
   <div class="w-full max-w-sm">
-    <cdiv class="text-center mb-4">
+    <div class="text-center mb-4">
       <h1>ユーザー登録</h1>
         <%= form_with(model: @user, local: true) do |form| %>
             <div class="mb-4">
@@ -21,21 +21,21 @@
             </div>
             <div class="mb-4">
                 <%= form.label :age, t('.age') %>
-                <%= form.select :age, User.ages.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :age, User.human_attribute_enum_values(:age), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :live_prefecture, t('.prefecture') %>
-                <%= form.select :live_prefecture, User.live_prefectures.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :live_prefecture, User.human_attribute_enum_values(:live_prefecture), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :tolerance, t('.tolerance') %>
-                <%= form.select :tolerance, User.tolerances.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :tolerance, User.human_attribute_enum_values(:tolerance), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :profile_img, t('.profile_image') %>
                 <%= form.file_field :profile_img, class: "border-2 border-black px-3 py-2 w-full", id: "profileImage" %>
             </div>
-            <div id="imagePreview"></div>
+            <div id="profileImagePreview"></div>
 
             <div class="actions mt-4">
                 <%= form.submit t('.register'), class: "btn btn-primary" %>

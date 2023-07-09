@@ -13,15 +13,15 @@
             </div>
             <div class="mb-4">
                 <%= form.label :age, t('users.edit.age') %>
-                <%= form.select :age, User.human_attribute_enum_values(:age), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :age, User.ages.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :live_prefecture, t('users.edit.prefecture') %>
-                <%= form.select :live_prefecture, User.human_attribute_enum_values(:live_prefecture), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :live_prefecture, User.live_prefectures.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :tolerance, t('users.edit.tolerance') %>
-                <%= form.select :tolerance, User.human_attribute_enum_values(:tolerance), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :tolerance, User.tolerances.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :profile_img, t('users.edit.profile_image') %>

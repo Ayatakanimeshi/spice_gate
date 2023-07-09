@@ -2,15 +2,201 @@ ja:
   activerecord:
     models:
       shop: 店舗
+      user: ユーザー
     attributes:
+      user:
+        email: "Eメール"
+        name: "ユーザー名"
+        password: "パスワード"
+        password_confirmation: "パスワード（確認）"
+        profile_img: "プロフィール画像"
+        age: "年代"
+        live_prefecture: "住んでいる都道府県"
+        tolerance: "辛さに対する耐性"
+        ages:
+          teens: "10代"
+          twenties: "20代"
+          thirties: "30代"
+          forties: "40代"
+          fifties: "50代以上"
+          over_sixties: "60代以上"
+        live_prefectures:
+          hokkaido: "北海道"
+          aomori: "青森県"
+          iwate: "岩手県"
+          miyagi: "宮城県"
+          akita: "秋田県"
+          yamagata: "山形県"
+          fukushima: "福島県"
+          ibaraki: "茨城県"
+          tochigi: "栃木県"
+          gunma: "群馬県"
+          saitama: "埼玉県"
+          chiba: "千葉県"
+          tokyo: "東京都"
+          kanagawa: "神奈川県"
+          niigata: "新潟県"
+          toyama: "富山県"
+          ishikawa: "石川県"
+          fukui: "福井県"
+          yamanashi: "山梨県"
+          nagano: "長野県"
+          gifu: "岐阜県"
+          shizuoka: "静岡県"
+          aichi: "愛知県"
+          mie: "三重県"
+          shiga: "滋賀県"
+          kyoto: "京都府"
+          osaka: "大阪府"
+          hyogo: "兵庫県"
+          nara: "奈良県"
+          wakayama: "和歌山県"
+          tottori: "鳥取県"
+          shimane: "島根県"
+          okayama: "岡山県"
+          hiroshima: "広島県"
+          yamaguchi: "山口県"
+          tokushima: "徳島県"
+          kagawa: "香川県"
+          ehime: "愛媛県"
+          kochi: "高知県"
+          fukuoka: "福岡県"
+          saga: "佐賀県"
+          nagasaki: "長崎県"
+          kumamoto: "熊本県"
+          oita: "大分県"
+          miyazaki: "宮崎県"
+          kagoshima: "鹿児島県"
+          okinawa: "沖縄県"
+        tolerances:
+          dislike: "辛いのが苦手"
+          slightly_dislike: "少し苦手"
+          moderate: "普通"
+          slightly_prefer: "少し好き"
+          prefer: "大好き"
       shop:
         name: 名前
         prefecture: 所在地
+        prefectures:
+          hokkaido: "北海道"
+          aomori: "青森県"
+          iwate: "岩手県"
+          miyagi: "宮城県"
+          akita: "秋田県"
+          yamagata: "山形県"
+          fukushima: "福島県"
+          ibaraki: "茨城県"
+          tochigi: "栃木県"
+          gunma: "群馬県"
+          saitama: "埼玉県"
+          chiba: "千葉県"
+          tokyo: "東京都"
+          kanagawa: "神奈川県"
+          niigata: "新潟県"
+          toyama: "富山県"
+          ishikawa: "石川県"
+          fukui: "福井県"
+          yamanashi: "山梨県"
+          nagano: "長野県"
+          gifu: "岐阜県"
+          shizuoka: "静岡県"
+          aichi: "愛知県"
+          mie: "三重県"
+          shiga: "滋賀県"
+          kyoto: "京都府"
+          osaka: "大阪府"
+          hyogo: "兵庫県"
+          nara: "奈良県"
+          wakayama: "和歌山県"
+          tottori: "鳥取県"
+          shimane: "島根県"
+          okayama: "岡山県"
+          hiroshima: "広島県"
+          yamaguchi: "山口県"
+          tokushima: "徳島県"
+          kagawa: "香川県"
+          ehime: "愛媛県"
+          kochi: "高知県"
+          fukuoka: "福岡県"
+          saga: "佐賀県"
+          nagasaki: "長崎県"
+          kumamoto: "熊本県"
+          oita: "大分県"
+          miyazaki: "宮崎県"
+          kagoshima: "鹿児島県"
+          okinawa: "沖縄県"
+        days_of_week:
+          monday: "月曜日"
+          tuesday: "火曜日"
+          wednesday: "水曜日"
+          thursday: "木曜日"
+          friday: "金曜日"
+          saturday: "土曜日"
+          sunday: "日曜日"
         business_hour: 営業時間
         closed: 定休日
         shop_img: 店舗画像
         latitude: 緯度
         longitude: 経度
+      post:
+        title: "タイトル"
+        curry_img: "カレーの画像"
+        shop_prefecture: "都道府県"
+        shop_prefectures:
+          hokkaido: "北海道"
+          aomori: "青森県"
+          iwate: "岩手県"
+          miyagi: "宮城県"
+          akita: "秋田県"
+          yamagata: "山形県"
+          fukushima: "福島県"
+          ibaraki: "茨城県"
+          tochigi: "栃木県"
+          gunma: "群馬県"
+          saitama: "埼玉県"
+          chiba: "千葉県"
+          tokyo: "東京都"
+          kanagawa: "神奈川県"
+          niigata: "新潟県"
+          toyama: "富山県"
+          ishikawa: "石川県"
+          fukui: "福井県"
+          yamanashi: "山梨県"
+          nagano: "長野県"
+          gifu: "岐阜県"
+          shizuoka: "静岡県"
+          aichi: "愛知県"
+          mie: "三重県"
+          shiga: "滋賀県"
+          kyoto: "京都府"
+          osaka: "大阪府"
+          hyogo: "兵庫県"
+          nara: "奈良県"
+          wakayama: "和歌山県"
+          tottori: "鳥取県"
+          shimane: "島根県"
+          okayama: "岡山県"
+          hiroshima: "広島県"
+          yamaguchi: "山口県"
+          tokushima: "徳島県"
+          kagawa: "香川県"
+          ehime: "愛媛県"
+          kochi: "高知県"
+          fukuoka: "福岡県"
+          saga: "佐賀県"
+          nagasaki: "長崎県"
+          kumamoto: "熊本県"
+          oita: "大分県"
+          miyazaki: "宮崎県"
+          kagoshima: "鹿児島県"
+          okinawa: "沖縄県"
+        spicinesses:
+          not_spicy: "1 - 辛くない"
+          slightly_spicy: "2 - あまり辛くない"
+          just_right: "3 - ちょうどいい"
+          more_spicy: "4 - どちらかというと辛い"
+          very_spicy: "5 - 辛い"
+
   users:
     new:
       nickname: "ニックネーム"
@@ -23,6 +209,30 @@ ja:
       profile_image: "プロフィール画像"
       register: "登録"
       login_page: "ログインページへ"
+    edit:
+      title: ユーザー編集
+      nickname: ニックネーム
+      email: メール
+      age: 年齢
+      prefecture: 都道府県
+      tolerance: 辛さの耐性
+      profile_image: プロフィール画像
+      update: 更新する
+      back_to_show_link: ユーザー詳細へ戻る
+      back_to_index_link: ユーザー一覧へ戻る
+    index:
+      title: ユーザー一覧
+      email: "メール: %{email}"
+      age: "年齢: %{age}"
+      prefecture: "都道府県: %{prefecture}"
+      tolerance: "辛さの耐性: %{tolerance}"
+    show:
+      email: "メール: %{email}"
+      age: "年齢: %{age}"
+      prefecture: "都道府県: %{prefecture}"
+      tolerance: "辛さの耐性: %{tolerance}"
+      edit_link: "編集する"
+      back_to_index_link: "ユーザー一覧に戻る"
 
   user_sessions:
     new:
@@ -42,11 +252,40 @@ ja:
       curry_img: "カレーの画像"
       submit: "投稿する"
       back_to_index_link: "投稿一覧に戻る"
+    show:
+      shop_prefecture: "店の都道府県: %{shop_prefecture}"
+      spiciness: "スパイシーさ: %{spiciness}"
+      edit_link: "編集"
+      delete_link: "削除"
+      delete_confirmation: "本当に削除しますか？"
+      back_to_index_link: "投稿一覧に戻る"
+    index:
+      title: "投稿一覧"
+      new_post_link: "新規投稿"
+      shop_prefecture: "店の都道府県: %{shop_prefecture}"
+      spiciness: "スパイシーさ: %{spiciness}"
+    edit:
+      title: "投稿編集"
+      shop_prefecture: "店の都道府県"
+      spiciness: "スパイシーさ"
+      curry_img: "カレーの画像"
+      submit: "更新する"
+      back_to_show_link: "投稿詳細に戻る"
+      back_to_index_link: "投稿一覧に戻る"
+
   shops:
     new:
       title: 新規店舗登録
       submit: 投稿
-    index:
-      title: 店舗一覧
     show:
-      title: 店舗詳細
+      title: "店舗詳細"
+      prefecture: "所在地: %{prefecture}"
+      business_hour: "営業時間: %{business_hour}"
+      closed: "定休日: %{closed}"
+      edit_link: "この店舗を編集"
+      back_to_index_link: "店舗一覧に戻る"
+    index:
+      title: "店舗一覧"
+      prefecture: "所在地: %{prefecture}"
+      business_hour: "営業時間: %{business_hour}"
+      closed: "定休日: %{closed}"
