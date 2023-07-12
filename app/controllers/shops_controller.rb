@@ -9,8 +9,10 @@ class ShopsController < ApplicationController
     def create
       @shop = Shop.new(shop_params)
       if @shop.save
-        redirect_to @shop, notice: '店舗情報を投稿しました。'
+        flash[:notice] = '店舗情報を投稿しました。'
+        redirect_to new_post_path
       else
+        flash.now[:alert] = '店舗情報の投稿に失敗しました。'
         render :new
       end
     end
@@ -29,7 +31,7 @@ class ShopsController < ApplicationController
     end
   
     def shop_params
-      params.require(:shop).permit(:name, :prefecture, :business_hour, closed_days: [], :shop_img, :latitude, :longitude)
-    end
+      params.require(:shop).permit(:name, :prefecture, :business_hour, :shop_img, :latitude, :longitude, closed_days: [])
+    end      
   end
   

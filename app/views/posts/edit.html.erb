@@ -8,18 +8,18 @@
                 <%= form.text_field :title, class: "border-2 border-black px-3 py-2 w-full" %>
             <div class="mb-4">
                 <%= form.label :shop_prefecture, t('posts.edit.shop_prefecture') %>
-                <%= form.select :shop_prefecture, Post.shop_prefectures.keys.map {|k| [t("enums.post.shop_prefecture.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
+                <%= form.select :shop_prefecture, Post.shop_prefectures.keys.map {|k| [t("activerecord.attributes.post.shop_prefectures.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
                 <%= form.label :spiciness, t('posts.edit.spiciness') %>
-                <%= form.select :spiciness, Post.spicinesses.keys.map {|k| [t("enums.post.spiciness.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
+                <%= form.select :spiciness, Post.spicinesses.keys.map {|k| [t("activerecord.attributes.post.spicinesses.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
                 <%= form.label :curry_img, t('posts.edit.curry_img') %>
                 <%= form.file_field :curry_img, class: "border-2 border-black px-3 py-2 w-full", id: "curryImage" %>
             </div>
             <div id="curryImagePreview">
-              <%= image_tag @post.curry_img if @post.curry_img.present? %>
+              <%= image_tag @post.curry_img.url if @post.curry_img.present? %>
             </div>
 
             <div class="actions mt-4">

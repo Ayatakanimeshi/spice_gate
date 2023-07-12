@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  skip_before_action :require_login, only: [:index, :show]
+  before_action :require_login, except: [:index, :show]
 
   # GET /posts
   def index
@@ -14,6 +14,7 @@ class PostsController < ApplicationController
   # GET /posts/new
   def new
     @post = Post.new
+    @shops = Shop.all
   end
 
   # GET /posts/1/edit
@@ -22,11 +23,13 @@ class PostsController < ApplicationController
 
   # POST /posts
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
 
     if @post.save
-      redirect_to @post, notice: 'Post was successfully created.'
+      flash[:notice] = "投稿に成功しました"
+      redirect_to root_path
     else
+      flash.now[:alert] = "投稿に失敗しました"
       render :new
     end
   end
@@ -34,8 +37,10 @@ class PostsController < ApplicationController
   # PATCH/PUT /posts/1
   def update
     if @post.update(post_params)
-      redirect_to @post, notice: 'Post was successfully updated.'
+      flash[:notice] = "投稿を更新しました"
+      redirect_to @post
     else
+      flash[:alert] = "投稿の更新に失敗しました"
       render :edit
     end
   end
@@ -43,7 +48,8 @@ class PostsController < ApplicationController
   # DELETE /posts/1
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    flash[:notice] = "投稿を削除しました"
+    redirect_to posts_url
   end
 
   private

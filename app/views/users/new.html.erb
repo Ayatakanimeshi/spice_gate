@@ -21,15 +21,15 @@
             </div>
             <div class="mb-4">
                 <%= form.label :age, t('.age') %>
-                <%= form.select :age, User.human_attribute_enum_values(:age), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :age, User.ages.keys.map {|k| [t("activerecord.attributes.user.ages.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :live_prefecture, t('.prefecture') %>
-                <%= form.select :live_prefecture, User.human_attribute_enum_values(:live_prefecture), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :live_prefecture, User.live_prefectures.keys.map {|k| [t("activerecord.attributes.user.live_prefectures.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :tolerance, t('.tolerance') %>
-                <%= form.select :tolerance, User.human_attribute_enum_values(:tolerance), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.select :tolerance, User.tolerances.keys.map {|k| [t("activerecord.attributes.user.tolerances.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
             </div>
             <div class="mb-4">
                 <%= form.label :profile_img, t('.profile_image') %>

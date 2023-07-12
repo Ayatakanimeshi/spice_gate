@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const imageElements = [
     { inputId: "profileImage", previewId: "profileImagePreview" },
     { inputId: "curryImage", previewId: "curryImagePreview" },
+    { inputId: "shopImage", previewId: "shopImagePreview" }, // こちらの行を追加
   ];
 
   imageElements.forEach(({ inputId, previewId }) => {

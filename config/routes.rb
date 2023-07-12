@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts
-  resources :users, only: [:new, :create, :index]
+  resources :users, only: [:new, :create]
   resources :shops, only: [:new, :create, :show, :index]
   root 'tops#top'
 

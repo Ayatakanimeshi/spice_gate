@@ -2,13 +2,13 @@
   <div class="w-full max-w-xl">
     <div class="text-center mb-4">
       <h1><%= @post.title %></h1>
-      <p><%= t('posts.show.shop_prefecture', shop_prefecture: t("enums.post.shop_prefecture.#{@post.shop_prefecture}")) %></p>
-      <p><%= t('posts.show.spiciness', spiciness: t("enums.post.spiciness.#{@post.spiciness}")) %></p>
-      <%= image_tag @post.curry_img if @post.curry_img.present? %>
+      <p><%= t('activerecord.attributes.post.shop_prefecture') %>：<%= t("activerecord.attributes.post.shop_prefectures.#{@post.shop_prefecture}") %></p>
+      <p><%= t('activerecord.attributes.post.spiciness') %>：<%= t("activerecord.attributes.post.spicinesses.#{@post.spiciness}") %></p>
+      <%= image_tag @post.curry_img.url if @post.curry_img.present? %>
 
       <div class="actions mt-4">
         <%= link_to t('posts.show.edit_link'), edit_post_path(@post), class: "btn btn-primary mr-2" %>
-        <%= link_to t('posts.show.delete_link'), post_path(@post), method: :delete, data: { confirm: t('posts.show.delete_confirmation') }, class: "btn btn-danger" %>
+        <%= button_to t('posts.show.delete_link'), post_path(@post), method: :delete, data: { confirm: t('posts.show.delete_confirmation') }, class: "btn btn-danger" %>
       </div>
       <div class='text-center mt-2'>
           <%= link_to t('posts.show.back_to_index_link'), posts_path %>
