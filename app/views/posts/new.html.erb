@@ -1,40 +1,40 @@
 <div class="flex justify-center items-center mt-48 mx-auto">
   <div class="w-full max-w-sm">
-    <div class="text-center mb-4">
-      <h1><%= t('users.edit.title') %></h1>
-        <%= form_with(model: @user, local: true) do |form| %>
+    <cdiv class="text-center mb-4">
+      <h1>新規投稿</h1>
+        <%= form_with(model: @post, local: true) do |form| %>
             <div class="mb-4">
-                <%= form.label :name, t('users.edit.nickname') %>
-                <%= form.text_field :name, class: "border-2 border-black px-3 py-2 w-full" %>
+                <%= form.label :title, t('posts.new.title') %>
+                <%= form.text_field :title, class: "border-2 border-black px-3 py-2 w-full" %>
+            </div>
+            <div class="flex justify-between items-center mb-4">
+              <div>
+                <%= form.label :shop, t('posts.new.shop') %>
+                <%= form.collection_select :shop_id, Shop.all, :id, :name, {}, {class: "border-2 border-black px-3 py-2"} %>
+              </div>
+              <div>
+                <%= link_to t('shops.new.new_shop_link'), new_shop_path, class: "btn btn-primary" %>
+              </div>
             </div>
             <div class="mb-4">
-                <%= form.label :email, t('users.edit.email') %>
-                <%= form.email_field :email, class: "border-2 border-black px-3 py-2 w-full" %>
+                <%= form.label :shop_prefecture, t('posts.new.shop_prefecture') %>
+                <%= form.select :shop_prefecture, Post.shop_prefectures.keys.map {|k| [t("activerecord.attributes.post.shop_prefectures.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
-                <%= form.label :age, t('users.edit.age') %>
-                <%= form.select :age, User.human_attribute_enum_values(:age), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.label :spiciness, t('posts.new.spiciness') %>
+                <%= form.select :spiciness, Post.spicinesses.keys.map {|k| [t("activerecord.attributes.post.spicinesses.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
-                <%= form.label :live_prefecture, t('users.edit.prefecture') %>
-                <%= form.select :live_prefecture, User.human_attribute_enum_values(:live_prefecture), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+                <%= form.label :curry_img, t('posts.new.curry_img') %>
+                <%= form.file_field :curry_img, class: "border-2 border-black px-3 py-2 w-full", id: "curryImage" %>
             </div>
-            <div class="mb-4">
-                <%= form.label :tolerance, t('users.edit.tolerance') %>
-                <%= form.select :tolerance, User.human_attribute_enum_values(:tolerance), {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :profile_img, t('users.edit.profile_image') %>
-                <%= form.file_field :profile_img, class: "border-2 border-black px-3 py-2 w-full", id: "profileImage" %>
-            </div>
-            <div id="profileImagePreview"></div>
+            <div id="curryImagePreview"></div>
 
             <div class="actions mt-4">
-                <%= form.submit t('users.edit.update'), class: "btn btn-primary" %>
+                <%= form.submit t('posts.new.submit'), class: "btn btn-primary" %>
             </div>
             <div class='text-center'>
-                <%= link_to t('users.edit.back_to_show_link'), user_path(@user) %>
-                <%= link_to t('users.edit.back_to_index_link'), users_path %>
+                <%= link_to t('posts.new.back_to_index_link'), posts_path %>
             </div>
         <% end %>
     </div>

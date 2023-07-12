@@ -10,6 +10,13 @@
   </head>
 
   <body>
+    <% flash.each do |message_type, message| %>
+      <div class="<%= flash_classname(message_type) %>">
+        <%= message %>
+        <button class="close" onclick="this.parentElement.style.display='none';">&times;</button>
+      </div>
+    <% end %>
+
     <%= yield %>
     <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </body>

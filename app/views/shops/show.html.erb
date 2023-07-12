@@ -5,11 +5,8 @@
       <p><%= t('shops.show.prefecture', prefecture: t("activerecord.attributes.shop.prefectures.#{@shop.prefecture}")) %></p>
       <p><%= t('shops.show.business_hour', business_hour: @shop.business_hour) %></p>
       <p><%= t('shops.show.closed', closed: @shop.closed_days.map { |day| t("activerecord.attributes.shop.days_of_week.#{day}") }.join(", ")) %></p>
-      <%= image_tag @shop.shop_img if @shop.shop_img.present? %>
+      <%= image_tag @shop.shop_img.url if @shop.shop_img.present? %>
 
-      <div class="actions mt-4">
-        <%= link_to t('shops.show.edit_link'), edit_shop_path(@shop), class: "btn btn-primary mr-2" %>
-      </div>
       <div class='text-center mt-2'>
           <%= link_to t('shops.show.back_to_index_link'), shops_path %>
       </div>

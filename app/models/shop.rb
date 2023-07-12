@@ -20,7 +20,7 @@ class Shop < ApplicationRecord
 DAYS_OF_THE_WEEK = %w[monday tuesday wednesday thursday friday saturday sunday]
 
     def closed_days
-        closed.split(',')
+        closed.split(',') if closed
     end
 
     def closed_days=(days)

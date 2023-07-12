@@ -196,7 +196,6 @@ ja:
           just_right: "3 - ちょうどいい"
           more_spicy: "4 - どちらかというと辛い"
           very_spicy: "5 - 辛い"
-
   users:
     new:
       nickname: "ニックネーム"
