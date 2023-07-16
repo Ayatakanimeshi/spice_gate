@@ -1,33 +1,30 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/">RUNTEQ 中間試験</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+<div class="bg-gray-800 px-6 py-4">
+  <div class="flex items-center justify-between">
+    <a class="text-white text-lg" href="/">RUNTEQ 中間試験</a>
+    <div>
       <%= render 'shared/search_form', url: posts_path, q: @q %>
-      
-      <ul class="navbar-nav mb-2 mb-lg-0 ms-auto">
+    </div>
+    <div>
+      <ul class="flex items-center space-x-6">
         <% if current_user.present? %>
-          <li class="nav-item">
-            <%= link_to '投稿一覧', posts_path, class: 'nav-link' %>
+          <li>
+            <%= link_to '投稿一覧', posts_path, class: 'text-white' %>
           </li>
-          <li class="nav-item">
-            <%= link_to '投稿作成', new_post_path, class: 'nav-link' %>
+          <li>
+            <%= link_to '投稿作成', new_post_path, class: 'text-white' %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'ログアウト', logout_path, class: 'nav-link', method: :delete, data: { confirm: 'ログアウトします' } %>
+          <li>
+            <%= link_to 'Logout', logout_path, data: { turbo_method: :delete }%>
           </li>
         <% else %>
-          <li class="nav-item">
-            <%= link_to 'ユーザー登録', sign_up_path, class: 'nav-link' %>
+          <li>
+            <%= link_to 'ユーザー登録', new_user_path, class: 'text-white' %>
           </li>
-          <li class="nav-item">
-            <%= link_to 'ログイン', login_path, class: 'nav-link' %>
+          <li>
+            <%= link_to 'ログイン', login_path, class: 'text-white' %>
           </li>
         <% end %>
       </ul>
     </div>
   </div>
-</nav>
+</div>

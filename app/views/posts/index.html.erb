@@ -4,13 +4,17 @@
       <h1><%= t('posts.index.title') %></h1>
       <%= link_to t('posts.index.new_post_link'), new_post_path, class: "btn btn-primary mb-4" %>
 
-      <% @posts.each do |post| %>
-        <div class="border-2 border-black p-4 mb-4">
-          <h2><%= link_to post.title, post_path(post) %></h2>
-          <p><%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>
-          <p><%= t('posts.index.spiciness', spiciness: t("activerecord.attributes.post.spicinesses.#{post.spiciness}")) %></p>
-          <%= image_tag post.curry_img.url if post.curry_img.present? %>
-        </div>
+      <% if @posts.empty? %>
+        <p>投稿はありません</p>
+      <% else %>
+        <% @posts.each do |post| %>
+          <div class="border-2 border-black p-4 mb-4">
+            <h2><%= link_to post.title, post_path(post) %></h2>
+            <p><%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>
+            <p><%= t('posts.index.spiciness', spiciness: t("activerecord.attributes.post.spicinesses.#{post.spiciness}")) %></p>
+            <%= image_tag post.curry_img.url if post.curry_img.present? %>
+          </div>
+        <% end %>
       <% end %>
     </div>
   </div>

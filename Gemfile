@@ -37,6 +37,8 @@ gem "carrierwave"
 
 gem "ransack"
 
+gem "enum_help"
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

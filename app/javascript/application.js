@@ -37,3 +37,5 @@ function previewImage(input, imagePreview) {
 
   reader.readAsDataURL(file);
 }
+import "@hotwired/turbo-rails"
+import "./controllers"
