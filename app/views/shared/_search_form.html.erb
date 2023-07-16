@@ -1,7 +1,20 @@
-<!-- 検索フォーム -->
-<%= search_form_for @q, url: url, class: "d-flex" do |f| %>
-  <%= f.search_field :title_or_body_cont, class: 'form-control me-2' ,id: 'search_field_of_post', placeholder: '投稿' %>
-  <%= f.search_field :comments_body_cont, class: 'form-control me-2' ,id: 'search_field_of_comment', placeholder: 'コメント' %>
-  <%= f.search_field :user_name_cont, class: 'form-control me-2' ,id: 'search_field_of_user', placeholder: 'ユーザー' %>
-  <%= f.submit 'Search', class: 'btn btn-outline-success' %>
+<%= search_form_for @q, as: :q, url: posts_path, html: { class: 'flex space-x-4', method: :get } do |f| %>
+  <%= f.hidden_field :m, value: 'and' %>
+
+  <div class="flex flex-col">
+    <%= f.label :shop_prefecture_eq, '都道府県', class: 'mb-2' %>
+    <%= f.select :shop_prefecture_eq, Post.shop_prefectures_i18n.invert.map { |key, value| [key, Post.shop_prefectures[value]] }, {}, class: 'border p-2' %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= f.label :user_tolerance_eq, '辛さ耐性', class: 'mb-2' %>
+    <%= f.select :user_tolerance_eq, User.tolerances_i18n.invert.map { |key, value| [key, User.tolerances[value]] }, {}, class: 'border p-2' %>
+  </div>
+
+  <div class="flex flex-col">
+    <%= f.label :spiciness_eq, 'カレーの辛さレベル', class: 'mb-2' %>
+    <%= f.select :spiciness_eq, Post.spicinesses_i18n.invert.map { |key, value| [key, Post.spicinesses[value]] }, {}, class: 'border p-2' %>
+  </div>
+
+  <%= f.submit 'Search', class: 'mt-7 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' %>
 <% end %>

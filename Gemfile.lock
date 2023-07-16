@@ -98,6 +98,8 @@ GEM
     debug (1.8.0)
       irb (>= 1.5.0)
       reline (>= 0.3.1)
+    enum_help (0.0.19)
+      activesupport (>= 3.0.0)
     erubi (1.12.0)
     faraday (2.7.7)
       faraday-net_http (>= 2.0, < 3.1)
@@ -148,6 +150,8 @@ GEM
       net-protocol
     nio4r (2.5.9)
     nokogiri (1.15.2-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.15.2-x86_64-darwin)
       racc (~> 1.4)
     oauth (1.1.0)
       oauth-tty (~> 1.0, >= 1.0.1)
@@ -228,6 +232,7 @@ GEM
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
     sqlite3 (1.6.3-arm64-darwin)
+    sqlite3 (1.6.3-x86_64-darwin)
     ssrf_filter (1.1.1)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
@@ -259,6 +264,7 @@ GEM
 
 PLATFORMS
   arm64-darwin-22
+  x86_64-darwin-22
 
 DEPENDENCIES
   bootsnap
@@ -266,6 +272,7 @@ DEPENDENCIES
   carrierwave
   cssbundling-rails
   debug
+  enum_help
   jbuilder
   jsbundling-rails
   mini_magick

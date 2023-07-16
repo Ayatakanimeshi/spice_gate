@@ -4,7 +4,8 @@ class PostsController < ApplicationController
 
   # GET /posts
   def index
-    @posts = Post.all
+    @q = Post.ransack(params[:q], search_key: :q, m: 'and')
+    @posts = @q.result
   end
 
   # GET /posts/1
