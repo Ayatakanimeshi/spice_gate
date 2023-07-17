@@ -15,6 +15,9 @@
             <%= image_tag post.curry_img.url if post.curry_img.present? %>
           </div>
         <% end %>
+
+        <%= paginate @posts %>
+
       <% end %>
     </div>
   </div>

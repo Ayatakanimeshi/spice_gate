@@ -18,7 +18,7 @@ ja:
           twenties: "20代"
           thirties: "30代"
           forties: "40代"
-          fifties: "50代以上"
+          fifties: "50代"
           over_sixties: "60代以上"
         live_prefectures:
           hokkaido: "北海道"
@@ -193,9 +193,9 @@ ja:
         spicinesses:
           not_spicy: "1 - 辛くない"
           slightly_spicy: "2 - あまり辛くない"
-          just_right: "3 - ちょうどいい"
-          more_spicy: "4 - どちらかというと辛い"
-          very_spicy: "5 - 辛い"
+          moderately_spicy: "3 - ちょうどいい"
+          more_than_moderate: "4 - どちらかというと辛い"
+          spicy: "5 - 辛い"
   users:
     new:
       nickname: "ニックネーム"

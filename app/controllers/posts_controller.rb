@@ -5,7 +5,7 @@ class PostsController < ApplicationController
   # GET /posts
   def index
     @q = Post.ransack(params[:q], search_key: :q, m: 'and')
-    @posts = @q.result
+    @posts = @q.result.order(created_at: :desc).page(params[:page]).per(10)
   end
 
   # GET /posts/1

@@ -12,6 +12,9 @@
           <%= image_tag shop.shop_img.url if shop.shop_img.present? %>
         </div>
       <% end %>
+
+      <%= paginate @shops %>
+      
     </div>
   </div>
 </div>
