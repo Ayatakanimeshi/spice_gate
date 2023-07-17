@@ -1,9 +1,12 @@
-document.addEventListener("DOMContentLoaded", function () {
+import "@hotwired/turbo-rails";
+import "./controllers";
+
+document.addEventListener("turbo:load", function () {
   // 入力とプレビューエレメントのペアを定義
   const imageElements = [
     { inputId: "profileImage", previewId: "profileImagePreview" },
     { inputId: "curryImage", previewId: "curryImagePreview" },
-    { inputId: "shopImage", previewId: "shopImagePreview" }, // こちらの行を追加
+    { inputId: "shopImage", previewId: "shopImagePreview" },
   ];
 
   imageElements.forEach(({ inputId, previewId }) => {
@@ -37,5 +40,3 @@ function previewImage(input, imagePreview) {
 
   reader.readAsDataURL(file);
 }
-import "@hotwired/turbo-rails"
-import "./controllers"
