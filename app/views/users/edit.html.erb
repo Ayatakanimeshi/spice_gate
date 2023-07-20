@@ -1,41 +1,10 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
-  <div class="w-full max-w-sm">
+<div class="flex justify-center items-center mt-12 md:mt-48 mx-auto">
+  <div class="w-11/12 md:w-full max-w-sm mx-auto">
     <div class="text-center mb-4">
-      <h1><%= t('users.edit.title') %></h1>
-        <%= form_with(model: @user, local: true) do |form| %>
-            <div class="mb-4">
-                <%= form.label :name, t('users.edit.nickname') %>
-                <%= form.text_field :name, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :email, t('users.edit.email') %>
-                <%= form.email_field :email, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :age, t('users.edit.age') %>
-                <%= form.select :age, User.ages.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :live_prefecture, t('users.edit.prefecture') %>
-                <%= form.select :live_prefecture, User.live_prefectures.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :tolerance, t('users.edit.tolerance') %>
-                <%= form.select :tolerance, User.tolerances.keys.map { |w| [w, w] }, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :profile_img, t('users.edit.profile_image') %>
-                <%= form.file_field :profile_img, class: "border-2 border-black px-3 py-2 w-full", id: "profileImage" %>
-            </div>
-            <div id="profileImagePreview"></div>
-
-            <div class="actions mt-4">
-                <%= form.submit t('users.edit.update'), class: "btn btn-primary" %>
-            </div>
-            <div class='text-center'>
-                <%= link_to t('users.edit.back_to_show_link'), user_path(@user) %>
-                <%= link_to t('users.edit.back_to_index_link'), users_path %>
-            </div>
+      <h1 class="text-xl md:text-3xl"><%= t('users.edit.title') %></h1>
+        <%= render 'form', submit_label: t('users.edit.update') do %>
+          <%= link_to t('users.edit.back_to_show_link'), user_path(@user), class: "text-sm md:text-base" %>
+          <%= link_to t('users.edit.back_to_index_link'), users_path, class: "text-sm md:text-base" %>
         <% end %>
     </div>
   </div>

@@ -1,0 +1,44 @@
+<%= form_with(model: @user, local: true) do |form| %>
+  <div class="mb-4">
+    <%= form.label :name, t('.nickname'), class: "text-sm md:text-base" %>
+    <%= form.text_field :name, class: "border-2 border-black px-3 py-2 w-full" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :email, t('.email'), class: "text-sm md:text-base" %>
+    <%= form.email_field :email, class: "border-2 border-black px-3 py-2 w-full" %>
+  </div>
+  <% if @user.new_record? %>
+    <div class="mb-4">
+      <%= form.label :password, t('.password'), class: "text-sm md:text-base" %>
+      <%= form.password_field :password, class: "border-2 border-black px-3 py-2 w-full" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :password_confirmation, t('.password_confirmation'), class: "text-sm md:text-base" %>
+      <%= form.password_field :password_confirmation, class: "border-2 border-black px-3 py-2 w-full" %>
+    </div>
+  <% end %>
+  <div class="mb-4">
+    <%= form.label :age, t('.age'), class: "text-sm md:text-base" %>
+    <%= form.select :age, User.ages.keys.map {|k| [t("activerecord.attributes.user.ages.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :live_prefecture, t('.prefecture'), class: "text-sm md:text-base" %>
+    <%= form.select :live_prefecture, User.live_prefectures.keys.map {|k| [t("activerecord.attributes.user.live_prefectures.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :tolerance, t('.tolerance'), class: "text-sm md:text-base" %>
+    <%= form.select :tolerance, User.tolerances.keys.map {|k| [t("activerecord.attributes.user.tolerances.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :profile_img, t('.profile_image'), class: "text-sm md:text-base" %>
+    <%= form.file_field :profile_img, class: "border-2 border-black px-3 py-2 w-full", id: "profileImage" %>
+  </div>
+  <div id="profileImagePreview"></div>
+
+  <div class="actions mt-4">
+    <%= form.submit submit_label, class: "btn btn-primary text-sm md:text-base" %>
+  </div>
+  <div class='text-center mt-2'>
+    <%= yield(:links) %>
+  </div>
+<% end %>

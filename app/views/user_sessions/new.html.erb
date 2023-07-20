@@ -1,23 +1,23 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
-  <div class="w-full max-w-sm">
+<div class="flex justify-center items-center mt-12 md:mt-48 mx-auto">
+  <div class="w-11/12 md:w-full max-w-sm mx-auto">
     <div class="text-center mb-4">
-      <h1>ログイン</h1>
+      <h1 class="text-xl md:text-3xl">ログイン</h1>
         <%= form_with url: login_path, local: true do |form| %>
             <div class="mb-4">
-                <%= form.label :email, t('user_sessions.new.email') %>
+                <%= form.label :email, t('user_sessions.new.email'), class: "text-sm md:text-base" %>
                 <%= form.email_field :email, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="mb-4">
-                <%= form.label :password, t('user_sessions.new.password') %>
+                <%= form.label :password, t('user_sessions.new.password'), class: "text-sm md:text-base" %>
                 <%= form.password_field :password, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
             <div class="actions mt-4">
-                <%= form.submit t('user_sessions.new.submit'), class: "btn btn-primary" %>
+                <%= form.submit t('user_sessions.new.submit'), class: "btn btn-primary text-sm md:text-base" %>
             </div>
         <% end %>
         <div class='text-center'>
-        <%= link_to t('user_sessions.new.signup_page'), new_user_path %>
-        <%= link_to t('user_sessions.new.forgot_password'), '#' %>
+        <%= link_to t('user_sessions.new.signup_page'), new_user_path, class: "text-sm md:text-base" %>
+        <%= link_to t('user_sessions.new.forgot_password'), '#', class: "text-sm md:text-base" %>
       </div>
     </div>
   </div>

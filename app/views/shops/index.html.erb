@@ -1,20 +1,11 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
-  <div class="w-full max-w-2xl">
-    <div class="text-center mb-4">
-      <h1><%= t('shops.index.title') %></h1>
+<div class="container mx-auto px-4 md:px-0 mt-16">
+  <div class="text-center mb-4">
+    <h1 class="mb-6 text-2xl md:text-3xl"><%= t('shops.index.title') %></h1>
 
-      <% @shops.each do |shop| %>
-        <div class="border-2 border-black p-4 mb-4">
-          <h2><%= link_to shop.name, shop_path(shop) %></h2>
-          <p><%= t('shops.index.prefecture', prefecture: t("activerecord.attributes.shop.prefectures.#{shop.prefecture}")) %></p>
-          <p><%= t('shops.index.business_hour', business_hour: shop.business_hour) %></p>
-          <p><%= t('shops.index.closed', closed: shop.closed_days.join(", ")) %></p>
-          <%= image_tag shop.shop_img.url if shop.shop_img.present? %>
-        </div>
-      <% end %>
-
-      <%= paginate @shops %>
-      
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <%= render partial: 'shop_card', collection: @shops, as: :shop %>
     </div>
+
+    <%= paginate @shops %>
   </div>
 </div>
