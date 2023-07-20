@@ -1,44 +1,13 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
-  <div class="w-full max-w-sm">
-    <div class="text-center mb-4">
-      <h1><%= t('shops.new.title') %></h1>
-        <%= form_with(model: @shop, local: true) do |form| %>
-            <div class="mb-4">
-                <%= form.label :name, t('activerecord.attributes.shop.name') %>
-                <%= form.text_field :name, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :prefecture, t('activerecord.attributes.shop.prefecture') %>
-                <%= form.select :prefecture, Shop.prefectures.keys.map {|k| [t("activerecord.attributes.shop.prefectures.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :business_hour, t('activerecord.attributes.shop.business_hour') %>
-                <%= form.text_field :business_hour, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :closed, t('activerecord.attributes.shop.closed') %>
-                <% Shop::DAYS_OF_THE_WEEK.each do |day| %>
-                  <%= check_box_tag 'shop[closed_days][]', day, (@shop.closed_days || []).include?(day), class: "mr-2" %>
-                  <%= label_tag day, t("activerecord.attributes.shop.days_of_week.#{day}"), class: "mr-4" %>
-                <% end %>
-            </div>
-          
-            <div class="mb-4">
-                <%= form.label :shop_img, t('activerecord.attributes.shop.shop_img') %>
-                <%= form.file_field :shop_img, class: "border-2 border-black px-3 py-2 w-full", id: "shopImage" %>
-            </div>
-            <div id="shopImagePreview"></div>
+<div class="container mx-auto px-4 md:px-0 mt-16">
+  <div class="text-center mb-4">
+    <h1 class="mb-6 text-2xl md:text-3xl"><%= t('shops.new.title') %></h1>
 
-            <%= form.hidden_field :latitude, id: 'shop_latitude' %>
-            <%= form.hidden_field :longitude, id: 'shop_longitude' %>
+    <div class="mx-auto max-w-md">
+      <%= render 'form', shop: @shop %>
+    </div>
 
-            <div class="actions mt-4">
-                <%= form.submit t('shops.new.submit'), class: "btn btn-primary" %>
-            </div>
-            <div class='text-center'>
-                <%= link_to t('shops.new.back_to_index_link'), shops_path %>
-            </div>
-        <% end %>
+    <div class='text-center mt-2'>
+      <%= link_to t('shops.new.back_to_index_link'), shops_path %>
     </div>
   </div>
 </div>

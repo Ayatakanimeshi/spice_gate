@@ -1,15 +1,13 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
-  <div class="w-full max-w-xl">
-    <div class="text-center mb-4">
-      <h1><%= @shop.name %></h1>
-      <p><%= t('shops.show.prefecture', prefecture: t("activerecord.attributes.shop.prefectures.#{@shop.prefecture}")) %></p>
-      <p><%= t('shops.show.business_hour', business_hour: @shop.business_hour) %></p>
-      <p><%= t('shops.show.closed', closed: @shop.closed_days.map { |day| t("activerecord.attributes.shop.days_of_week.#{day}") }.join(", ")) %></p>
-      <%= image_tag @shop.shop_img.url if @shop.shop_img.present? %>
+<div class="container mx-auto px-4 md:px-0 mt-16">
+  <div class="text-center mb-4">
+    <h1 class="mb-6 text-2xl md:text-3xl"><%= @shop.name %></h1>
+    <p class="text-sm md:text-base"><%= t('shops.show.prefecture', prefecture: t("activerecord.attributes.shop.prefectures.#{@shop.prefecture}")) %></p>
+    <p class="text-sm md:text-base"><%= t('shops.show.business_hour', business_hour: @shop.business_hour) %></p>
+    <p class="text-sm md:text-base mb-2"><%= t('shops.show.closed', closed: @shop.closed_days.map { |day| t("activerecord.attributes.shop.days_of_week.#{day}") }.join(", ")) %></p>
+    <%= image_tag @shop.shop_img.url, class: "w-full h-auto" if @shop.shop_img.present? %>
 
-      <div class='text-center mt-2'>
-          <%= link_to t('shops.show.back_to_index_link'), shops_path %>
-      </div>
+    <div class='text-center mt-2'>
+      <%= link_to t('shops.show.back_to_index_link'), shops_path %>
     </div>
   </div>
 </div>

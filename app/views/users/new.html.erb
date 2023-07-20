@@ -1,48 +1,9 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
-  <div class="w-full max-w-sm">
+<div class="flex justify-center items-center mt-12 md:mt-48 mx-auto">
+  <div class="w-11/12 md:w-full max-w-sm mx-auto">
     <div class="text-center mb-4">
-      <h1>ユーザー登録</h1>
-        <%= form_with(model: @user, local: true) do |form| %>
-            <div class="mb-4">
-                <%= form.label :name, t('.nickname') %>
-                <%= form.text_field :name, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :email, t('.email') %>
-                <%= form.email_field :email, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :password, t('.password') %>
-                <%= form.password_field :password, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :password_confirmation, t('.password_confirmation') %>
-                <%= form.password_field :password_confirmation, class: "border-2 border-black px-3 py-2 w-full" %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :age, t('.age') %>
-                <%= form.select :age, User.ages.keys.map {|k| [t("activerecord.attributes.user.ages.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :live_prefecture, t('.prefecture') %>
-                <%= form.select :live_prefecture, User.live_prefectures.keys.map {|k| [t("activerecord.attributes.user.live_prefectures.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :tolerance, t('.tolerance') %>
-                <%= form.select :tolerance, User.tolerances.keys.map {|k| [t("activerecord.attributes.user.tolerances.#{k}"), k]}, {}, {class: "border-2 border-black px-3 py-2 w-full"} %>
-            </div>
-            <div class="mb-4">
-                <%= form.label :profile_img, t('.profile_image') %>
-                <%= form.file_field :profile_img, class: "border-2 border-black px-3 py-2 w-full", id: "profileImage" %>
-            </div>
-            <div id="profileImagePreview"></div>
-
-            <div class="actions mt-4">
-                <%= form.submit t('.register'), class: "btn btn-primary" %>
-            </div>
-            <div class='text-center'>
-                <%= link_to t('.login_page'), login_path %>
-            </div>
+      <h1 class="text-xl md:text-3xl">ユーザー登録</h1>
+        <%= render 'form', submit_label: t('.register') do %>
+          <%= link_to t('.login_page'), login_path, class: "text-sm md:text-base" %>
         <% end %>
     </div>
   </div>
