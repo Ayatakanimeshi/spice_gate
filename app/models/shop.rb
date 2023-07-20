@@ -3,6 +3,7 @@ class Shop < ApplicationRecord
 
     validates :name, presence: true
     validates :prefecture, presence: true
+    validates :latitude, :longitude, presence: true
 
     mount_uploader :shop_img, ShopImgUploader
 

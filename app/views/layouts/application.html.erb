@@ -6,7 +6,12 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <% if current_user %>
+      <meta name="current-user-id" content="<%= current_user.id %>">
+    <% end %>
+
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkD2BhYcWQiqwZcyRHpCZZQJOsEhcCJrY"></script> <!-- ここに追加 -->
   </head>
 
   <body>

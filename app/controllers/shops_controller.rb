@@ -8,6 +8,13 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+
+    # 以下のブラウザの位置情報を取得するコードは不要になります。
+    # なぜなら、その位置情報は既にJavaScriptで取得され、hidden_fieldに設定されているためです。
+
+    # @shop.latitude = params[:latitude]
+    # @shop.longitude = params[:longitude]
+
     if @shop.save
       flash[:notice] = '店舗情報を投稿しました。'
       redirect_to new_post_path
