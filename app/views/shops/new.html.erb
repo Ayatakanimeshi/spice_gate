@@ -29,6 +29,9 @@
             </div>
             <div id="shopImagePreview"></div>
 
+            <%= form.hidden_field :latitude, id: 'shop_latitude' %>
+            <%= form.hidden_field :longitude, id: 'shop_longitude' %>
+
             <div class="actions mt-4">
                 <%= form.submit t('shops.new.submit'), class: "btn btn-primary" %>
             </div>

@@ -1,18 +1,18 @@
-<div class="flex justify-center items-center mt-48 mx-auto">
+<div class="flex justify-center items-center mt-12 sm:mt-48 mx-auto px-4 sm:px-0">
   <div class="w-full max-w-sm">
-    <cdiv class="text-center mb-4">
+    <div class="text-center mb-4">
       <h1>新規投稿</h1>
         <%= form_with(model: @post, local: true) do |form| %>
             <div class="mb-4">
                 <%= form.label :title, t('posts.new.title') %>
                 <%= form.text_field :title, class: "border-2 border-black px-3 py-2 w-full" %>
             </div>
-            <div class="flex justify-between items-center mb-4">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
               <div>
                 <%= form.label :shop, t('posts.new.shop') %>
-                <%= form.collection_select :shop_id, Shop.all, :id, :name, {}, {class: "border-2 border-black px-3 py-2"} %>
+                <%= form.collection_select :shop_id, Shop.all, :id, :name, {}, {class: "border-2 border-black px-3 py-2 w-full mb-2 sm:mb-0"} %>
               </div>
-              <div>
+              <div class="mt-2 sm:mt-0">
                 <%= link_to t('shops.new.new_shop_link'), new_shop_path, class: "btn btn-primary" %>
               </div>
             </div>

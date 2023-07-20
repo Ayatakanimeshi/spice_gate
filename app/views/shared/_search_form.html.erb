@@ -1,4 +1,4 @@
-<%= search_form_for @q, as: :q, url: posts_path, html: { class: 'flex space-x-4', method: :get } do |f| %>
+<%= search_form_for @q, as: :q, url: posts_path, html: { class: 'flex flex-wrap space-x-4', method: :get } do |f| %>
   <%= f.hidden_field :m, value: 'and' %>
 
   <div class="flex flex-col">

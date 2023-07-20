@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :require_login, except: [:index, :show, :new, :create]
+  before_action :require_login, except: [:index, :show, :new, :create, :update_location]
   
   def index
     @users = User.all
@@ -39,6 +39,14 @@ class UsersController < ApplicationController
       render :edit
     end
   end
+
+  def update_location
+    if current_user.update(latitude: params[:latitude], longitude: params[:longitude])
+      head :ok
+    else
+      render json: { error: "位置情報の更新に失敗しました" }, status: :unprocessable_entity
+    end
+  end
   
   def destroy
     current_user.destroy
@@ -48,6 +56,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :live_prefecture, :tolerance, :profile_img)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :live_prefecture, :tolerance, :profile_img, :latitude, :longitude)
   end
 end

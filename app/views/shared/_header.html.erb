@@ -1,12 +1,15 @@
-<div class="bg-gray-800 px-6 py-4">
+<div class="bg-gray-800 px-4 md:px-6 py-4">
   <div class="flex items-center justify-between">
     <a class="text-white text-lg" href="/">RUNTEQ 中間試験</a>
-    <div>
+    <div class="hidden md:block">
       <%= render 'shared/search_form', url: posts_path, q: @q %>
     </div>
     <div>
       <ul class="flex items-center space-x-6">
         <% if current_user.present? %>
+          <li>
+            <%= link_to '現在地からの検索', nearby_shops_path, class: 'text-white' %>
+          </li>
           <li>
             <%= link_to '投稿一覧', posts_path, class: 'text-white' %>
           </li>
@@ -26,5 +29,8 @@
         <% end %>
       </ul>
     </div>
+  </div>
+  <div class="md:hidden mt-4">
+    <%= render 'shared/search_form', url: posts_path, q: @q %>
   </div>
 </div>
