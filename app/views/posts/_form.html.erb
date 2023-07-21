@@ -10,7 +10,7 @@
       <%= form.collection_select :shop_id, Shop.all, :id, :name, {}, {class: "border-2 border-black px-3 py-2 w-full mb-2 sm:mb-0"} %>
     </div>
     <div class="mt-2 sm:mt-0">
-      <%= link_to t('shops.new.new_shop_link'), new_shop_path, class: "btn btn-primary" %>
+      <%= link_to t('posts.new.new_shop_link'), new_shop_path, class: "btn btn-primary" %>
     </div>
   </div>
   <% end %>

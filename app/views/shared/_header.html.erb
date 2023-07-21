@@ -1,6 +1,5 @@
-<div class="bg-gray-800 px-4 md:px-6 py-4">
+<div class="bg-orange-600 px-4 md:px-6 py-4 fixed top-0 w-full z-50">
   <div class="flex items-center justify-between">
-    <a class="text-white text-lg" href="/">RUNTEQ 中間試験</a>
     <div class="hidden md:block">
       <%= render 'shared/search_form', url: posts_path, q: @q %>
     </div>
@@ -16,8 +15,11 @@
           <li>
             <%= link_to '投稿作成', new_post_path, class: 'text-white' %>
           </li>
+          <li class="text-sm">
+            <%= link_to "#{current_user.name}のステータス", user_path(current_user), class: 'text-white' %>
+          </li>
           <li>
-            <%= link_to 'Logout', logout_path, data: { turbo_method: :delete }%>
+            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'text-white' %>
           </li>
         <% else %>
           <li>

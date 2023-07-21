@@ -6,6 +6,20 @@
     <p class="text-sm md:text-base mb-2"><%= t('shops.show.closed', closed: @shop.closed_days.map { |day| t("activerecord.attributes.shop.days_of_week.#{day}") }.join(", ")) %></p>
     <%= image_tag @shop.shop_img.url, class: "w-full h-auto" if @shop.shop_img.present? %>
 
+    <h2 class="mt-6 mb-4 text-xl md:text-2xl">みんなが食べたカレー一覧</h2>
+    <% if @shop.posts.empty? %>
+      <p>No posts related to this shop</p>
+    <% else %>
+      <% @shop.posts.each do |post| %>
+        <div class="border-2 border-black p-4 mb-4">
+          <h2><%= link_to post.title, post_path(post) %></h2>
+          <p><%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>
+          <p><%= t('posts.index.spiciness', spiciness: t("activerecord.attributes.post.spicinesses.#{post.spiciness}")) %></p>
+          <%= image_tag post.curry_img.url if post.curry_img.present? %>
+        </div>
+      <% end %>
+    <% end %>
+
     <div class='text-center mt-2'>
       <%= link_to t('shops.show.back_to_index_link'), shops_path %>
     </div>
