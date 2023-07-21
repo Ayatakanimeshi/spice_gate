@@ -4,6 +4,7 @@
       <h1><%= @post.title %></h1>
       <p><%= t('activerecord.attributes.post.shop_prefecture') %>：<%= t("activerecord.attributes.post.shop_prefectures.#{@post.shop_prefecture}") %></p>
       <p><%= t('activerecord.attributes.post.spiciness') %>：<%= t("activerecord.attributes.post.spicinesses.#{@post.spiciness}") %></p>
+      <p><%= t('activerecord.attributes.post.shop') %>：<%= link_to @post.shop.name, shop_path(@post.shop) %></p>
       <%= image_tag @post.curry_img.url if @post.curry_img.present? %>
 
       <div class="actions mt-4">

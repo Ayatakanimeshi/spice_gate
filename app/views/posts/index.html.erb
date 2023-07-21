@@ -10,6 +10,7 @@
         <% @posts.each do |post| %>
           <div class="border-2 border-black p-4 mb-4">
             <h2><%= link_to post.title, post_path(post) %></h2>
+            <p><%= t('activerecord.attributes.post.shop') %>：<%= link_to post.shop.name, shop_path(post.shop) %></p>
             <p><%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>
             <p><%= t('posts.index.spiciness', spiciness: t("activerecord.attributes.post.spicinesses.#{post.spiciness}")) %></p>
             <%= image_tag post.curry_img.url if post.curry_img.present? %>

@@ -1,18 +1,9 @@
 <div class="hero h-screen w-screen flex items-center justify-center relative">
-  <div class="flex items-center justify-center">
-    <%= link_to firstpage_path do %>
-      <%= image_tag("At-shirt0910.jpg", alt: "", class: "mx-auto md:w-1/2 w-full", style: "max-width: 100%; height: auto;") %>
-    <% end %>
+  <div class="flex items-center justify-center h-screen p-10">
+  <%= link_to firstpage_path, class: "inline-block" do %>
+    <%= image_tag("At-shirt0910.jpg", alt: "", class: "w-[550px] object-contain", style: "max-width: 100%; height: auto;") %>
+  <% end %>
   </div>
-  <p class="text-xl sm:text-2xl md:text-3xl text-red-900 absolute top-12 text-center w-full px-4">Welcome to Spice Gate</p>
-</div>
 
-<div class="fixed bottom-0 w-full bg-purple-100">
-  <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row items-center justify-center">
-    <p class="text-sm md:text-base text-center sm:text-left text-purple-800">© 2023 — 
-      <%= link_to "投稿一覧", posts_path, { class: "ml-1 text-purple-500 hover:text-purple-700" } %>
-      <span class="mx-2 text-purple-800">|</span>
-      <%= link_to "店舗一覧", shops_path, { class: "ml-1 text-purple-500 hover:text-purple-700" } %>
-    </p>
-  </div>
+  <p class="text-xl sm:text-2xl md:text-3xl text-red-900 absolute top-12 text-center w-full px-4">Welcome to Spice Gate</p>
 </div>
