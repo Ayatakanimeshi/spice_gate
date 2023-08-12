@@ -1,4 +1,4 @@
-<div class="bg-orange-600 px-4 md:px-6 py-4 fixed top-0 w-full z-50">
+<div class="bg-orange-600 px-4 md:px-6 py-4 fixed top-0 w-full ">
   <div class="flex items-center justify-between">
     <div class="hidden md:block">
       <%= render 'shared/search_form', url: posts_path, q: @q %>
@@ -7,26 +7,23 @@
       <ul class="flex items-center space-x-6">
         <% if current_user.present? %>
           <li>
-            <%= link_to '現在地からの検索', nearby_shops_path, class: 'text-white' %>
+            <%= link_to '投稿一覧', posts_path, class: 'text-white font-bold hover:bg-orange-700 hover:text-white px-3 py-2 rounded transition duration-300' %>
           </li>
           <li>
-            <%= link_to '投稿一覧', posts_path, class: 'text-white' %>
-          </li>
-          <li>
-            <%= link_to '投稿作成', new_post_path, class: 'text-white' %>
+            <%= link_to '投稿作成', new_post_path, class: 'text-white font-bold hover:bg-orange-700 hover:text-white px-3 py-2 rounded transition duration-300' %>
           </li>
           <li class="text-sm">
-            <%= link_to "#{current_user.name}のステータス", user_path(current_user), class: 'text-white' %>
+            <%= link_to "#{current_user.name}のステータス", user_path(current_user), class: 'text-white font-bold hover:bg-orange-700 hover:text-white px-3 py-2 rounded transition duration-300' %>
           </li>
           <li>
-            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'text-white' %>
+            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'text-white font-bold hover:bg-orange-700 hover:text-white px-3 py-2 rounded transition duration-300' %>
           </li>
         <% else %>
           <li>
-            <%= link_to 'ユーザー登録', new_user_path, class: 'text-white' %>
+            <%= link_to 'ユーザー登録', new_user_path, class: 'text-white font-bold hover:bg-orange-700 hover:text-white px-3 py-2 rounded transition duration-300' %>
           </li>
           <li>
-            <%= link_to 'ログイン', login_path, class: 'text-white' %>
+            <%= link_to 'ログイン', login_path, class: 'text-white font-bold hover:bg-orange-700 hover:text-white px-3 py-2 rounded transition duration-300' %>
           </li>
         <% end %>
       </ul>
