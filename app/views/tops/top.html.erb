@@ -1,9 +1,11 @@
-<div class="hero h-screen w-screen flex items-center justify-center relative">
-  <div class="flex items-center justify-center h-screen p-10">
-  <%= link_to firstpage_path, class: "inline-block" do %>
-    <%= image_tag("At-shirt0910.jpg", alt: "", class: "w-[550px] object-contain", style: "max-width: 100%; height: auto;") %>
-  <% end %>
-  </div>
+<div class="hero flex flex-col justify-center items-center h-screen p-10 z-10">
+  <!-- テキストの位置を調整し、下部の余白を減少させます -->
+  <p class="text-xl sm:text-2xl md:text-3xl text-red-900 text-center w-full px-4 z-10 mt-32 ">Welcome to Spice Gate</p>
 
-  <p class="text-xl sm:text-2xl md:text-3xl text-red-900 absolute top-12 text-center w-full px-4">Welcome to Spice Gate</p>
+  <!-- 画像を配置 -->
+  <div class="flex items-center justify-center flex-grow">
+    <%= link_to firstpage_path, class: "inline-block" do %>
+      <%= image_tag("At-shirt0910.jpg", alt: "", class: "w-[400px] object-contain", style: "max-width: 100%; height: auto;") %>
+    <% end %>
+  </div>
 </div>

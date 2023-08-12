@@ -1,4 +1,5 @@
 <% if object.errors.any? %>
+  <% binding.b %>
   <div class="alert alert-danger">
     <ul class="mb-0 list-unstyled">
       <% object.errors.full_messages.each do |msg| %>
