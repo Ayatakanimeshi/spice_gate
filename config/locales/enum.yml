@@ -5,7 +5,7 @@ ja:
         not_spicy: "辛くない"
         slightly_spicy: "あまり辛くない"
         moderately_spicy: "ちょうどいい"
-        more_than_moderate: "どちらかというと辛い"
+        more_than_moderate: "まあまあ辛い"
         spicy: "辛い"
 
       shop_prefecture:
@@ -117,10 +117,10 @@ ja:
 
       tolerance:
         dislike: "苦手"
-        slightly_dislike: "どちらかといえば苦手"
+        slightly_dislike: "少し苦手"
         moderate: "普通"
-        slightly_prefer: "どちらかといえば好き"
-        prefer: "好き"
+        slightly_prefer: "好き"
+        prefer: "大好き"
 
     shop:
       prefecture:

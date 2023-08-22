@@ -72,7 +72,7 @@ ja:
           dislike: "辛いのが苦手"
           slightly_dislike: "少し苦手"
           moderate: "普通"
-          slightly_prefer: "少し好き"
+          slightly_prefer: "好き"
           prefer: "大好き"
       shop:
         name: 名前
@@ -193,11 +193,11 @@ ja:
           kagoshima: "鹿児島県"
           okinawa: "沖縄県"
         spicinesses:
-          not_spicy: "1 - 辛くない"
-          slightly_spicy: "2 - あまり辛くない"
-          moderately_spicy: "3 - ちょうどいい"
-          more_than_moderate: "4 - どちらかというと辛い"
-          spicy: "5 - 辛い"
+          not_spicy: "辛くない"
+          slightly_spicy: "あまり辛くない"
+          moderately_spicy: "ちょうどいい"
+          more_than_moderate: "まあまあ辛い"
+          spicy: "辛い"
   users:
     new:
       nickname: "ニックネーム"
