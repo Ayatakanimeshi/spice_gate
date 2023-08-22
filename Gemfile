@@ -41,6 +41,8 @@ gem "enum_help"
 
 gem 'kaminari'
 
+gem 'font-awesome-sass', '~> 6.4.2'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 

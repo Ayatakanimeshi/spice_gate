@@ -2,14 +2,61 @@ import "@hotwired/turbo-rails";
 import "./controllers";
 
 document.addEventListener("turbo:load", function () {
-  // ... 既存のコード ...
+  // ハンバーガーメニューのトグル機能
+  const menuToggle = document.getElementById("menu-toggle");
+  const closeMenu = document.getElementById("close-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (menuToggle && mobileMenu) {
+    menuToggle.addEventListener("click", function () {
+      mobileMenu.style.transform = "translateX(0%)";
+      // アイコンの切り替え
+      const icon = menuToggle.querySelector("i");
+      if (icon.classList.contains("fa-bars")) {
+        icon.classList.remove("fa-bars");
+        icon.classList.add("fa-times");
+      } else {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+  }
+
+  if (closeMenu && mobileMenu) {
+    closeMenu.addEventListener("click", function () {
+      mobileMenu.style.transform = "translateX(100%)";
+      // アイコンの切り替え
+      const icon = menuToggle.querySelector("i");
+      if (icon.classList.contains("fa-times")) {
+        icon.classList.remove("fa-times");
+        icon.classList.add("fa-bars");
+      }
+    });
+  }
+
+  // 検索フォームのスライドイン、スライドアウト
+  const searchToggle = document.getElementById("search-toggle");
+  const closeSearch = document.getElementById("close-search");
+  const mobileSearch = document.getElementById("mobile-search");
+
+  if (searchToggle && mobileSearch) {
+    searchToggle.addEventListener("click", function () {
+      mobileSearch.classList.add("is-active");
+      mobileSearch.style.opacity = "1";
+    });
+  }
+
+  if (closeSearch && mobileSearch) {
+    closeSearch.addEventListener("click", function () {
+      mobileSearch.classList.remove("is-active");
+      mobileSearch.style.opacity = "0";
+    });
+  }
 
   if (document.getElementById("map")) {
     initMap();
   }
 });
-
-// ... 既存の関数 ...
 
 function initMap() {
   const center = { lat: 35.6895, lng: 139.6917 };
@@ -29,21 +76,19 @@ function initMap() {
     marker = new google.maps.Marker({
       position: pos,
       map: map,
-      draggable: true, // マーカーをドラッグ可能にする
+      draggable: true,
     });
     map.setCenter(pos);
 
     document.getElementById("shop_latitude").value = lat;
     document.getElementById("shop_longitude").value = lng;
 
-    // マーカーがドラッグされた後の位置をhidden fieldsに反映する
     google.maps.event.addListener(marker, "dragend", function (evt) {
       document.getElementById("shop_latitude").value = evt.latLng.lat();
       document.getElementById("shop_longitude").value = evt.latLng.lng();
     });
   });
 
-  // Update the user's location on the server
   if (userId) {
     fetch(`/users/${userId}/update_location`, {
       method: "PATCH",
@@ -58,7 +103,5 @@ function initMap() {
     });
   }
 }
-
-// ... 既存の関数 ...
 
 let userId = document.querySelector("meta[name='current-user-id']")?.content;
