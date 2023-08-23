@@ -1,34 +1,34 @@
 <%= form_with(model: post, local: true) do |form| %>
   <div class="mb-4">
-      <%= form.label :title, t('posts.new.title') %>
-      <%= form.text_field :title, class: "border-2 border-black px-3 py-2 w-full" %>
+      <%= form.label :title, t('posts.new.title'), class: "font-semibold text-gray-800" %>
+      <%= form.text_field :title, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 rounded-lg" %>
   </div>
   <% if local_assigns[:show_shop_selection] %>
   <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4">
-    <div>
-      <%= form.label :shop, t('posts.new.shop') %>
-      <%= form.collection_select :shop_id, Shop.all, :id, :name, {}, {class: "border-2 border-black px-3 py-2 w-full mb-2 sm:mb-0"} %>
+    <div class="mb-2 sm:mb-0">
+      <%= form.label :shop, t('posts.new.shop'), class: "font-semibold text-gray-800" %>
+      <%= form.collection_select :shop_id, Shop.all, :id, :name, {}, {class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 rounded-lg"} %>
     </div>
     <div class="mt-2 sm:mt-0">
-      <%= link_to t('posts.new.new_shop_link'), new_shop_path, class: "btn btn-primary" %>
+      <%= link_to t('posts.new.new_shop_link'), new_shop_path, class: "btn btn-primary bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full" %>
     </div>
   </div>
   <% end %>
   <div class="mb-4">
-      <%= form.label :shop_prefecture, t('posts.new.shop_prefecture') %>
-      <%= form.select :shop_prefecture, Post.shop_prefectures.keys.map {|k| [t("activerecord.attributes.post.shop_prefectures.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
+      <%= form.label :shop_prefecture, t('posts.new.shop_prefecture'), class: "font-semibold text-gray-800" %>
+      <%= form.select :shop_prefecture, Post.shop_prefectures.keys.map {|k| [t("activerecord.attributes.post.shop_prefectures.#{k}"), k]}, {}, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 rounded-lg" %>
   </div>
   <div class="mb-4">
-      <%= form.label :spiciness, t('posts.new.spiciness') %>
-      <%= form.select :spiciness, Post.spicinesses.keys.map {|k| [t("activerecord.attributes.post.spicinesses.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
+      <%= form.label :spiciness, t('posts.new.spiciness'), class: "font-semibold text-gray-800" %>
+      <%= form.select :spiciness, Post.spicinesses.keys.map {|k| [t("activerecord.attributes.post.spicinesses.#{k}"), k]}, {}, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 rounded-lg" %>
   </div>
   <div class="mb-4">
-      <%= form.label :curry_img, t('posts.new.curry_img') %>
-      <%= form.file_field :curry_img, class: "border-2 border-black px-3 py-2 w-full", id: "curryImage" %>
+      <%= form.label :curry_img, t('posts.new.curry_img'), class: "font-semibold text-gray-800" %>
+      <%= form.file_field :curry_img, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 rounded-lg", id: "curryImage" %>
   </div>
   <div id="curryImagePreview"></div>
 
   <div class="actions mt-4">
-      <%= form.submit t('posts.new.submit'), class: "btn btn-primary" %>
+      <%= form.submit t('posts.new.submit'), class: "btn btn-primary bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full" %>
   </div>
 <% end %>
