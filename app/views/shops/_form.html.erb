@@ -1,30 +1,32 @@
 <%= form_with(model: shop, local: true) do |form| %>
   <div class="mb-4">
-    <%= form.label :name, t('activerecord.attributes.shop.name') %>
-    <%= form.text_field :name, class: "border-2 border-black px-3 py-2 w-full" %>
+    <%= form.label :name, t('activerecord.attributes.shop.name'), class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.text_field :name, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg shadow-md" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :prefecture, t('activerecord.attributes.shop.prefecture') %>
-    <%= form.select :prefecture, Shop.prefectures.keys.map {|k| [t("activerecord.attributes.shop.prefectures.#{k}"), k]}, {}, class: "border-2 border-black px-3 py-2 w-full" %>
+    <%= form.label :prefecture, t('activerecord.attributes.shop.prefecture'), class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.select :prefecture, Shop.prefectures.keys.map {|k| [t("activerecord.attributes.shop.prefectures.#{k}"), k]}, {}, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg shadow-md" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :business_hour, t('activerecord.attributes.shop.business_hour') %>
-    <%= form.text_field :business_hour, class: "border-2 border-black px-3 py-2 w-full" %>
+    <%= form.label :business_hour, t('activerecord.attributes.shop.business_hour'), class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.text_field :business_hour, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg shadow-md" %>
   </div>
 
   <div class="mb-4">
-    <%= form.label :closed, t('activerecord.attributes.shop.closed') %>
-    <% Shop::DAYS_OF_THE_WEEK.each do |day| %>
-      <%= check_box_tag 'shop[closed_days][]', day, (shop.closed_days || []).include?(day), class: "mr-2" %>
-      <%= label_tag day, t("activerecord.attributes.shop.days_of_week.#{day}"), class: "mr-4" %>
-    <% end %>
+    <%= form.label :closed, t('activerecord.attributes.shop.closed'), class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <div class="mt-2">
+      <% Shop::DAYS_OF_THE_WEEK.each do |day| %>
+        <%= check_box_tag 'shop[closed_days][]', day, (shop.closed_days || []).include?(day), class: "mr-2" %>
+        <%= label_tag day, t("activerecord.attributes.shop.days_of_week.#{day}"), class: "mr-4 text-gray-800" %>
+      <% end %>
+    </div>
   </div>
 
   <div class="mb-4">
-    <%= form.label :shop_img, t('activerecord.attributes.shop.shop_img') %>
-    <%= form.file_field :shop_img, class: "border-2 border-black px-3 py-2 w-full", id: "shopImage" %>
+    <%= form.label :shop_img, t('activerecord.attributes.shop.shop_img'), class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.file_field :shop_img, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg shadow-md", id: "shopImage" %>
   </div>
   <div id="shopImagePreview"></div>
 

@@ -1,10 +1,14 @@
 <div class="flex justify-center items-center mt-12 md:mt-48 mx-auto">
   <div class="w-11/12 md:w-full max-w-sm mx-auto">
-    <div class="text-center mb-4">
-      <h1 class="text-xl md:text-3xl">ユーザー登録</h1>
+    <div class="border-2 border-yellow-500 p-4 bg-yellow-100 rounded-lg shadow-md mb-6">
+      <div class="text-center mb-4">
+        <h1 class="text-xl md:text-3xl text-gray-800 font-semibold">ユーザー登録</h1>
         <%= render 'form', submit_label: t('.register') do %>
-          <%= link_to t('.login_page'), login_path, class: "text-sm md:text-base" %>
+          <div class="mt-4">
+            <%= link_to t('.login_page'), login_path, class: "text-sm md:text-base text-yellow-600 hover:text-yellow-700 font-semibold tracking-wide" %>
+          </div>
         <% end %>
+      </div>
     </div>
   </div>
 </div>
