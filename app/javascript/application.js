@@ -56,6 +56,23 @@ document.addEventListener("turbo:load", function () {
   if (document.getElementById("map")) {
     initMap();
   }
+
+  // 画像プレビュー機能
+  const imageElements = [
+    { inputId: "profileImage", previewId: "profileImagePreview" },
+    { inputId: "curryImage", previewId: "curryImagePreview" },
+    { inputId: "shopImage", previewId: "shopImagePreview" },
+  ];
+
+  imageElements.forEach(({ inputId, previewId }) => {
+    const inputElement = document.getElementById(inputId);
+    const previewElement = document.getElementById(previewId);
+    if (inputElement && previewElement) {
+      inputElement.addEventListener("change", function () {
+        previewImage(inputElement, previewElement);
+      });
+    }
+  });
 });
 
 function initMap() {
@@ -105,3 +122,26 @@ function initMap() {
 }
 
 let userId = document.querySelector("meta[name='current-user-id']")?.content;
+
+function previewImage(input, imagePreview) {
+  const file = input.files[0];
+  if (file) {
+    const reader = new FileReader();
+    reader.onload = function (e) {
+      const img = document.createElement("img");
+      img.src = e.target.result;
+      img.classList.add("preview-image");
+      // Remove any existing images
+      while (imagePreview.firstChild) {
+        imagePreview.removeChild(imagePreview.firstChild);
+      }
+      imagePreview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  } else {
+    // 画像が選択されていない場合、プレビューをクリア
+    while (imagePreview.firstChild) {
+      imagePreview.removeChild(imagePreview.firstChild);
+    }
+  }
+}

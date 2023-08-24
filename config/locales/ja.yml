@@ -1,4 +1,6 @@
 ja:
+  search: 検索
+  nearby_search: "現在地からの検索"
   activerecord:
     models:
       shop: 店舗
@@ -219,8 +221,7 @@ ja:
       tolerance: 辛さの耐性
       profile_image: プロフィール画像
       update: 更新する
-      back_to_show_link: ユーザー詳細へ戻る
-      back_to_index_link: ユーザー一覧へ戻る
+      back_to_show_link: プロフィールに戻る
     index:
       title: ユーザー一覧
       email: "メール: %{email}"
@@ -280,6 +281,7 @@ ja:
     new:
       title: 新規店舗登録
       submit: 投稿
+      posts_new: 投稿画面に戻る
     show:
       title: "店舗詳細"
       prefecture: "所在地: %{prefecture}"
@@ -287,6 +289,7 @@ ja:
       closed: "定休日: %{closed}"
       edit_link: "この店舗を編集"
       back_to_index_link: "店舗一覧に戻る"
+      no_posts: "このお店の投稿はありません"
     index:
       title: "店舗一覧"
       prefecture: "所在地: %{prefecture}"
