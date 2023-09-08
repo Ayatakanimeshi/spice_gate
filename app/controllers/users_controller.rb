@@ -48,11 +48,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def destroy
-    current_user.destroy
-    redirect_to login_path # or root_path depending on your application
-  end
-  
   private
   
   def user_params
