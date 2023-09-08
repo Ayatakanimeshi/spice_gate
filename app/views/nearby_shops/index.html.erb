@@ -1,9 +1,12 @@
 <div class="container mx-auto px-4 md:px-0 mt-16">
   <div class="text-center mb-4">
     <div class="border-2 border-yellow-500 p-4 bg-yellow-100 rounded-lg shadow-md mb-6">
-      <h1 class="mb-6 text-2xl md:text-3xl font-bold text-yellow-600 tracking-wide font-mono"><i class="fas fa-map-marker-alt"></i> 現在地からの店舗検索</h1>
+      <h1 class="mb-6 text-2xl md:text-3xl font-bold text-yellow-600 tracking-wide font-mono">
+        <i class="fas fa-map-marker-alt"></i> 現在地からの店舗検索
+      </h1>
       
-      <div id="map" class="w-full h-96 md:h-400"></div> <!-- Map will be inserted here -->
+      <!-- Map will be inserted here -->
+      <div id="map" class="w-full h-96 md:h-400"></div> 
       
       <style>
         @media(min-width: 768px){
@@ -15,3 +18,79 @@
     </div>
   </div>
 </div>
+
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyAkD2BhYcWQiqwZcyRHpCZZQJOsEhcCJrY&callback=initMap" async defer></script>
+<script>
+  let map;
+
+  function initMap(){
+    map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15
+    });
+
+    // 現在地を取得する
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        // 現在地の緯度経度を取得
+        const pos = {
+          lat: position.coords.latitude,
+          lng: position.coords.longitude
+        };
+
+        // マップの中心を現在地に設定
+        map.setCenter(pos);
+
+        // 現在地にマーカーを設置
+        new google.maps.Marker({
+          position: pos,
+          map: map,
+          title: "Your Location",
+          icon: {
+            path: google.maps.SymbolPath.CIRCLE,
+            scale: 10,
+            fillColor: "#0000FF",
+            fillOpacity: 1,
+            strokeWeight: 1,
+            strokeColor: "#FFFFFF"
+          }
+        });
+
+        const shops = <%= raw @shops.to_json %>;
+        let bounds = new google.maps.LatLngBounds();
+
+        shops.forEach(shop => {
+          if (shop.latitude && shop.longitude) {
+            const shopPosition = { lat: shop.latitude, lng: shop.longitude };
+            let marker = new google.maps.Marker({
+              position: shopPosition,
+              map: map,
+              title: shop.name,
+            });
+            bounds.extend(shopPosition);
+
+            // マーカーにクリックイベントを追加
+            google.maps.event.addListener(marker, 'click', function() {
+              // shopの詳細画面に遷移するURLを指定
+              // 例: /shops/:id というURLパターンを想定
+              window.location.href = '/shops/' + shop.id;
+            });
+          }
+        });
+
+      }, function() {
+        // Geolocationの取得に失敗した場合の処理
+        handleLocationError(true, map.getCenter());
+      });
+    } else {
+      // ブラウザがGeolocationをサポートしていない場合の処理
+      handleLocationError(false, map.getCenter());
+    }
+  }
+
+  function handleLocationError(browserHasGeolocation, pos) {
+    alert(browserHasGeolocation ?
+      'Error: The Geolocation service failed.' :
+      'Error: Your browser doesn\'t support geolocation.');
+    map.setCenter(pos);
+  }
+</script>
