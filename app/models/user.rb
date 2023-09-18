@@ -4,9 +4,8 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 8 }, if: -> { new_record? || changes[:crypted_password] }
   validates :password, confirmation: true, if: -> { new_record? || changes[:crypted_password] }
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
-  validates :email, uniqueness: true , presence: true
+  validates :email, presence: true, uniqueness: { case_sensitive: false, unless: :email_unchanged? }
   validates :name, :age, :live_prefecture, :tolerance, presence: true
-  validates :latitude, :longitude, presence: true
 
   enum age: { teens: 0, twenties: 1, thirties: 2, forties: 3, fifties: 4, over_sixties: 5 }
   
@@ -38,5 +37,9 @@ class User < ApplicationRecord
     else
       User.all
     end
+  end
+
+  def email_unchanged?
+    !changes[:email]
   end
 end
