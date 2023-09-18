@@ -6,7 +6,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, if: -> { new_record? || changes[:crypted_password] }
   validates :email, uniqueness: true , presence: true
   validates :name, :age, :live_prefecture, :tolerance, presence: true
-  validates :latitude, :longitude, presence: true
 
   enum age: { teens: 0, twenties: 1, thirties: 2, forties: 3, fifties: 4, over_sixties: 5 }
   

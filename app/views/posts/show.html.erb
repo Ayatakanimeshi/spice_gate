@@ -4,6 +4,7 @@
       <h1 class="text-3xl md:text-4xl font-bold text-yellow-600 tracking-wide font-mono mb-6"><i class="fas fa-utensils mr-2"></i><%= @post.title %></h1>
       <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt mr-1"></i> <%= t('activerecord.attributes.post.shop_prefecture') %>：<%= t("activerecord.attributes.post.shop_prefectures.#{@post.shop_prefecture}") %></p>
       <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-pepper-hot mr-1"></i> <%= t('activerecord.attributes.post.spiciness') %>：<%= t("activerecord.attributes.post.spicinesses.#{@post.spiciness}") %></p>
+      <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-fire mr-1"></i> <%= t('activerecord.attributes.user.tolerance') %>：<%= t("activerecord.attributes.user.tolerances.#{@post.user.tolerance}") %></p>
       <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-store mr-1"></i> <%= t('activerecord.attributes.post.shop') %>：<%= link_to @post.shop.name, shop_path(@post.shop) %></p>
       <%= image_tag @post.curry_img.url, class: "w-full h-auto rounded-lg shadow-lg mb-4" if @post.curry_img.present? %>
 

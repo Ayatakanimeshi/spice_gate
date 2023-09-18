@@ -35,8 +35,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to user_path(@user)
     else
-      flash.now[:danger] = "更新に失敗しました"
-      render :edit
+      redirect_to edit_user_path(@user)
     end
   end
 
@@ -51,6 +50,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :live_prefecture, :tolerance, :profile_img, :latitude, :longitude)
+    params.require(:user).permit(:name, :email, :password, :password_confirmation, :age, :live_prefecture, :tolerance, :profile_img)
   end
 end

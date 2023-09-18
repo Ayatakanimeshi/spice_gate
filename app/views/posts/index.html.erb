@@ -16,6 +16,7 @@
             <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-store"></i> <%= t('activerecord.attributes.post.shop') %>：<%= link_to post.shop.name, shop_path(post.shop) %></p>
             <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt"></i> <%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>
             <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-pepper-hot"></i> <%= t('posts.index.spiciness', spiciness: t("activerecord.attributes.post.spicinesses.#{post.spiciness}")) %></p>
+            <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-fire mr-1"></i> <%= t('activerecord.attributes.user.tolerance') %>：<%= t("activerecord.attributes.user.tolerances.#{post.user.tolerance}") %></p>
             <%= image_tag post.curry_img.url, class: "w-full h-auto rounded-lg shadow-lg" if post.curry_img.present? %>
           </div>
         <% end %>

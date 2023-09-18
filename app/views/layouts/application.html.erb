@@ -15,7 +15,7 @@
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'application', "data-turbo-track": "reload" %>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAkD2BhYcWQiqwZcyRHpCZZQJOsEhcCJrY"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>"></script>
   </head>
 
   <body class="flex flex-col items-stretch min-h-screen">
