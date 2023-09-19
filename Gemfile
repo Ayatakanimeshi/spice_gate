@@ -45,6 +45,10 @@ gem 'font-awesome-sass', '~> 6.4.2'
 
 gem 'dotenv-rails', groups: [:development, :test]
 
+gem 'pg'
+
+gem 'aws-sdk-s3'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -89,3 +93,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.11"
+
+gem "sentry-rails", "~> 5.11"
