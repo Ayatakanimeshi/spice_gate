@@ -1,9 +1,9 @@
-# fly.toml app configuration file generated for okachi on 2023-09-19T22:30:58+09:00
+# fly.toml app configuration file generated for spice-gate on 2023-09-21T00:04:14+09:00
 #
 # See https://fly.io/docs/reference/configuration/ for information about how to use this file.
 #
 
-app = "okachi"
+app = "spice-gate"
 primary_region = "nrt"
 console_command = "/rails/bin/rails console"
 
