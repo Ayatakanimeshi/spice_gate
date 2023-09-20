@@ -1,0 +1,73 @@
+<div class="bg-orange-600 px-4 md:px-6 py-2 md:py-4 fixed top-0 w-full">
+  <div class="flex items-center justify-between">
+    <!-- 検索フォームを表示するためのボタン -->
+    <button id="search-toggle" class="md:hidden">
+      <i class="fas fa-search fa-lg"></i>
+    </button>
+
+    <div class="absolute left-1/2 transform -translate-x-1/2 text-2xl md:text-4xl font-extrabold text-white">
+      Spice Gate
+    </div>
+
+    <!-- デスクトップ用の検索フォーム -->
+    <div class="hidden md:block w-1/3">
+      <%= render 'shared/search_form', url: posts_path, q: @q %>
+    </div>
+
+    <!-- メニュー項目 -->
+    <div id="mobile-menu" class="fixed top-0 right-0 w-1/2 h-auto bg-gray-800 bg-opacity-90 transform translate-x-full transition-transform duration-300 md:flex items-center space-x-4 md:space-x-6">
+      <button id="close-menu" class="absolute top-4 right-4">
+        <i class="fas fa-times fa-lg"></i>
+      </button>
+      <ul class="w-full p-4">
+        <% if current_user.present? %>
+          <li class="mb-2">
+            <%= link_to '投稿一覧', posts_path, class: 'text-lg font-bold text-white hover:bg-orange-700 hover:text-white px-4 py-2 rounded transition duration-300 block text-center' %>
+          </li>
+          <li class="mb-2">
+            <%= link_to '投稿作成', new_post_path, class: 'text-lg font-bold text-white hover:bg-orange-700 hover:text-white px-4 py-2 rounded transition duration-300 block text-center' %>
+          </li>
+          <li class="mb-2 text-xs md:text-sm">
+            <%= link_to "#{current_user.name}のステータス", user_path(current_user), class: 'text-lg font-bold text-white hover:bg-orange-700 hover:text-white px-4 py-2 rounded transition duration-300 block text-center' %>
+          </li>
+          <li class="mb-2">
+            <%= link_to 'ログアウト', logout_path, data: { turbo_method: :delete }, class: 'text-lg font-bold text-white hover:bg-orange-700 hover:text-white px-4 py-2 rounded transition duration-300 block text-center' %>
+          </li>
+        <% else %>
+          <li class="mb-2">
+            <%= link_to 'ユーザー登録', new_user_path, class: 'text-lg font-bold text-white hover:bg-orange-700 hover:text-white px-4 py-2 rounded transition duration-300 block text-center' %>
+          </li>
+          <li class="mb-2">
+            <%= link_to 'ログイン', login_path, class: 'text-lg font-bold text-white hover:bg-orange-700 hover:text-white px-4 py-2 rounded transition duration-300 block text-center' %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+
+    <!-- ハンバーガーメニューアイコン -->
+    <button id="menu-toggle" class="md:hidden ml-auto">
+      <i class="fas fa-bars fa-lg"></i>
+    </button>
+  </div>
+
+  <!-- モバイル用の検索フォーム -->
+  <div id="mobile-search" class="md:hidden fixed top-0 left-0 rigth-0 w-1/2 h-auto bg-gray-800 bg-opacity-90 transform translateX(-100%) translateY(-110%) transition-transform duration-300 transition-opacity duration-300">
+    <button id="close-search" class="absolute top-4 right-4">
+      <i class="fas fa-times fa-lg"></i>
+    </button>
+    <%= render 'shared/search_form', url: posts_path, q: @q %>
+  </div>
+</div>
+
+<style>
+  #mobile-search {
+    width: 100%; /* 画面の横幅いっぱいに広がるように設定 */
+    transform-origin: top left;
+    transform: rotateZ(-90deg);
+    transition: all .3s ease;
+  }
+
+  #mobile-search.is-active {
+    transform: rotateZ(0deg);
+  }
+</style>

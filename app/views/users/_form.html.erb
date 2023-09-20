@@ -1,0 +1,45 @@
+<%= form_with(model: @user,local: true) do |form| %>
+  <%= render 'shared/error_messages', object: form.object %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.text_field :name, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :email, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.email_field :email, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg" %>
+  </div>
+  <% if @user.new_record? %>
+    <div class="mb-4">
+      <%= form.label :password, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+      <%= form.password_field :password, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg" %>
+    </div>
+    <div class="mb-4">
+      <%= form.label :password_confirmation, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+      <%= form.password_field :password_confirmation, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg" %>
+    </div>
+  <% end %>
+  <div class="mb-4">
+    <%= form.label :age, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.select :age, User.ages.keys.map {|k| [t("activerecord.attributes.user.ages.#{k}"), k]}, {}, {class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :live_prefecture, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.select :live_prefecture, User.live_prefectures.keys.map {|k| [t("activerecord.attributes.user.live_prefectures.#{k}"), k]}, {}, {class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :tolerance, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.select :tolerance, User.tolerances.keys.map {|k| [t("activerecord.attributes.user.tolerances.#{k}"), k]}, {}, {class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg"} %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :profile_img, class: "block text-base md:text-lg text-gray-800 font-semibold" %>
+    <%= form.file_field :profile_img, class: "border-2 border-yellow-500 px-3 py-2 w-full mt-2 bg-white rounded-lg", id: "profileImage" %>
+  </div>
+  <div id="profileImagePreview"></div>
+
+  <div class="actions mt-4">
+    <%= form.submit t('users.new.register'), class: "bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300" %>
+  </div>
+  <div class='text-center mt-2'>
+    <%= yield(:links) %>
+  </div>
+<% end %>

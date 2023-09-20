@@ -1,0 +1,18 @@
+<div class="container mx-auto px-4 md:px-0 mt-16">
+  <div class="text-center mb-4">
+    <div class="border-2 border-yellow-500 p-4 bg-yellow-100 rounded-lg shadow-md mb-6">
+      <h1 class="mb-6 text-3xl md:text-4xl font-bold text-yellow-600 tracking-wide font-mono"><i class="fas fa-user"></i> <%= @user.name %></h1>
+
+      <p class="text-base md:text-lg text-gray-800 font-semibold mb-2"><%= t('users.show.email', email: @user.email) %></p>
+      <p class="text-base md:text-lg text-gray-800 font-semibold mb-2"><%= t('users.show.age', age: @user.age_i18n) %></p>
+      <p class="text-base md:text-lg text-gray-800 font-semibold mb-2"><%= t('users.show.prefecture', prefecture: @user.live_prefecture_i18n) %></p>
+      <p class="text-base md:text-lg text-gray-800 font-semibold mb-4"><%= t('users.show.tolerance', tolerance: @user.tolerance_i18n) %></p>
+
+      <%= image_tag @user.profile_img.url, class: "rounded-full shadow-lg", alt: "User Profile Image" if @user.profile_img.present? %>
+
+      <div class="mt-4">
+        <%= link_to t('users.show.edit_link'), edit_user_path(@user), class: "text-sm md:text-base bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-lg transition duration-300 inline-block" %>
+      </div>
+    </div>
+  </div>
+</div>

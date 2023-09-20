@@ -1,0 +1,29 @@
+<div class="flex justify-center items-center mt-6 md:mt-48 mx-auto">
+  <div class="w-full md:max-w-2xl">
+    <div class="text-center mb-4">
+      <h1 class="text-4xl font-bold text-yellow-600 mb-6 tracking-wide font-mono"><i class="fas fa-pen"></i> <%= t('posts.index.title') %></h1>
+      <%= link_to t('posts.index.new_post_link'), new_post_path, class: "btn btn-primary mb-8 bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full" %>
+
+      <% if @posts.empty? %>
+        <p class="text-xl text-gray-600 mb-6 font-semibold">投稿はありません</p>
+      <% else %>
+        <% @posts.each do |post| %>
+          <div class="border-2 border-yellow-500 p-4 mb-6 mt-6 bg-yellow-100 rounded-lg shadow-md">
+            <h2 class="text-2xl font-bold text-yellow-600 mb-2 tracking-wide font-mono">
+              <i class="fas fa-utensils "></i>
+              <%= link_to post.title, post_path(post) %>
+            </h2>
+            <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-store"></i> <%= t('activerecord.attributes.post.shop') %>：<%= link_to post.shop.name, shop_path(post.shop) %></p>
+            <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt"></i> <%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>
+            <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-pepper-hot"></i> <%= t('posts.index.spiciness', spiciness: t("activerecord.attributes.post.spicinesses.#{post.spiciness}")) %></p>
+            <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-fire mr-1"></i> <%= t('activerecord.attributes.user.tolerance') %>：<%= t("activerecord.attributes.user.tolerances.#{post.user.tolerance}") %></p>
+            <%= image_tag post.curry_img.url, class: "w-full h-auto rounded-lg shadow-lg" if post.curry_img.present? %>
+          </div>
+        <% end %>
+
+        <%= paginate @posts, class: "mt-6 text-yellow-600 hover:text-yellow-700 font-semibold tracking-wide" %>
+
+      <% end %>
+    </div>
+  </div>
+</div>

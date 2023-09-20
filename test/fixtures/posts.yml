@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  shop: one
+  shop_prefecture: MyString
+  title: MyString
+  spiciness: 1
+  curry_img: MyString
+
+two:
+  user: two
+  shop: two
+  shop_prefecture: MyString
+  title: MyString
+  spiciness: 1
+  curry_img: MyString

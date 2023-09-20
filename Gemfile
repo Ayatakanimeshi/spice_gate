@@ -30,6 +30,28 @@ gem "cssbundling-rails"
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
 gem "jbuilder"
 
+gem "sorcery"
+
+gem "mini_magick"
+gem "carrierwave"
+
+gem "ransack"
+
+gem "enum_help"
+
+gem 'kaminari'
+
+gem 'font-awesome-sass', '~> 6.4.2'
+
+gem 'dotenv-rails', groups: [:development, :test]
+
+gem 'pg'
+
+gem 'aws-sdk-s3'
+
+gem 'fog-aws'
+
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
@@ -73,3 +95,9 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+gem "dockerfile-rails", ">= 1.5", :group => :development
+
+gem "sentry-ruby", "~> 5.11"
+
+gem "sentry-rails", "~> 5.11"

@@ -1,0 +1,11 @@
+<div class="container mx-auto px-4 md:px-0 mt-16">
+  <div class="text-center mb-4">
+    <h1 class="mb-6 text-3xl md:text-4xl font-bold text-yellow-600 tracking-wide font-mono"><i class="fas fa-store"></i> <%= t('shops.index.title') %></h1>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <%= render partial: 'shop_card', collection: @shops, as: :shop %>
+    </div>
+
+    <%= paginate @shops, class: "mt-6 text-yellow-600 hover:text-yellow-700 font-semibold tracking-wide" %>
+  </div>
+</div>

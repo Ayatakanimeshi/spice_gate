@@ -1,0 +1,20 @@
+<div class="flex justify-center items-center mt-6 md:mt-48 mx-auto">
+  <div class="w-full md:max-w-xl">
+    <div class="text-center mb-4 border-2 border-yellow-500 p-4 bg-yellow-100 rounded-lg shadow-md">
+      <h1 class="text-3xl md:text-4xl font-bold text-yellow-600 tracking-wide font-mono mb-6"><i class="fas fa-utensils mr-2"></i><%= @post.title %></h1>
+      <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt mr-1"></i> <%= t('activerecord.attributes.post.shop_prefecture') %>：<%= t("activerecord.attributes.post.shop_prefectures.#{@post.shop_prefecture}") %></p>
+      <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-pepper-hot mr-1"></i> <%= t('activerecord.attributes.post.spiciness') %>：<%= t("activerecord.attributes.post.spicinesses.#{@post.spiciness}") %></p>
+      <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-fire mr-1"></i> <%= t('activerecord.attributes.user.tolerance') %>：<%= t("activerecord.attributes.user.tolerances.#{@post.user.tolerance}") %></p>
+      <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-store mr-1"></i> <%= t('activerecord.attributes.post.shop') %>：<%= link_to @post.shop.name, shop_path(@post.shop) %></p>
+      <%= image_tag @post.curry_img.url, class: "w-full h-auto rounded-lg shadow-lg mb-4" if @post.curry_img.present? %>
+
+      <div class="actions flex justify-center mt-4 space-x-4">
+        <%= link_to t('posts.show.edit_link'), edit_post_path(@post), class: "btn btn-primary bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full" %>
+        <%= button_to t('posts.show.delete_link'), post_path(@post), method: :delete, data: { confirm: t('posts.show.delete_confirmation') }, class: "btn btn-danger bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded-full" %>
+      </div>
+      <div class='text-center mt-6'>
+          <%= link_to t('posts.show.back_to_index_link'), posts_path, class: "text-yellow-600 hover:text-yellow-700 font-semibold tracking-wide" %>
+      </div>
+    </div>
+  </div>
+</div>

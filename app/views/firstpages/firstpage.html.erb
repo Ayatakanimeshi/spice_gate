@@ -1,0 +1,68 @@
+<style>
+  /* 一般的なフォントを適用 */
+  body {
+    font-family: 'Helvetica, Arial, sans-serif';
+  }
+
+  /* impact-textクラスのスタイルを定義 */
+  .impact-text {
+    font-size: 1.5rem;
+    color: #FF4500; /* オレンジ色 */
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    font-family: 'font-mono';
+  }
+
+  /* 画面の幅が640px以上の場合のスタイルを定義 */
+  @media (min-width: 640px) { 
+    .impact-text {
+      font-size: 2rem;
+    }
+  }
+</style>
+
+<div class="flex justify-center items-center mt-6 md:mt-48 mx-auto">
+  <div class="w-full md:max-w-2xl">
+    <div class="text-center mb-4">
+      <!-- タイトル部分 -->
+      <h1 class="text-2xl font-bold text-yellow-600 mb-6 tracking-wide font-mono">ようこそ、SpiceCurryの世界へ</h1>
+
+      <!-- コンテンツ部分 -->
+      <div class="border-2 border-yellow-500 p-4 mb-6 mt-6 bg-yellow-100 rounded-lg shadow-md">
+        <h2 class="text-2xl font-bold text-yellow-600 mb-2 tracking-wide font-mono">SpiceCurryとは？</h2>
+        <p class="text-lg text-gray-800 mb-2 font-semibold">
+          スパイスカレーは、日本の家庭料理で使われるカレールーを使わずにスパイスから作られるカレーのことです。
+          本場インドカレーの調理法を参考にしながらも、材料やスパイス使いなどに日本独自のアレンジを加えたレシピが多くみられます。
+          クミン、コリアンダー、ターメリック、カルダモン、シナモンなどが一般的なスパイスとして使われています。
+          新しい発想で、ほかにはないカレーを作る人気店が増えてきており、日本のカレー界にムーブメントを起こし続けています。
+        </p>
+        
+        <h2 class="text-2xl font-bold text-yellow-600 mb-2 tracking-wide font-mono">スパイスカレーは健康にも良い！</h2>
+        <p class="text-lg text-gray-800 mb-2 font-semibold">
+          スパイスカレーには健康や精神状態にさまざまな効果があります。
+          スパイスにはポリフェノールやクルクミンによる抗酸化作用・抗炎症作用があります。
+          また、カプサイシンによる体温上昇作用や、カルダモンによる消化促進作用などもあります。
+          クルクミンは、酸化ストレスや炎症が発症に関係している認知症やうつ病などの神経疾患にも効果をもたらす可能性があります。
+        </p>
+
+        <h2 class="text-2xl font-bold text-yellow-600 mb-2 tracking-wide font-mono">スパイスカレーの魅力</h2>
+        <p class="text-lg text-gray-800 mb-2 font-semibold">
+          スパイスカリーはどのスパイスを使うか、どう配合するかで味が大きく変わります。
+          つまり、同じスパイスカリーは存在しません。唯一無二なのです。
+          このアプリを通じて、スパイスカリーの魅力を知ってもらい、スパイスカリーの世界を広げていきましょう！
+        </p>
+        
+        <p class="text-lg text-gray-800 text-center impact-text">
+          あなただけのSpice Gateを開けてください!
+        </p>
+      </div>
+
+      <!-- 新規登録とログインのボタン部分 -->
+      <div class="flex flex-row justify-center gap-4">
+        <%= link_to "新規登録", new_user_path, class: "py-2 px-4 w-full sm:w-auto bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-full" %>
+        <%= link_to "ログイン", login_path, class: "py-2 px-4 w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-full" %> 
+      </div>
+    </div>
+  </div>
+</div>
