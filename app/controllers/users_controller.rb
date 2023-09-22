@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
   
+  def edit
+    @user = current_user
+  end
+
   def create
     @user = User.new(user_params)
     
@@ -23,10 +27,6 @@ class UsersController < ApplicationController
       flash.now[:danger] = "登録に失敗しました"
       redirect_to action: :new
     end
-  end
-  
-  def edit
-    @user = current_user
   end
   
   def update

@@ -1,6 +1,13 @@
 class ShopsController < ApplicationController
-  before_action :set_shop, only: [:show, :edit, :update, :destroy]
+  before_action :set_shop, only: [:show]
   skip_before_action :require_login, only: [:index, :show]
+
+  def index
+    @shops = Shop.order(created_at: :desc).page(params[:page]).per(5)
+  end
+
+  def show
+  end
 
   def new
     @shop = Shop.new
@@ -22,13 +29,6 @@ class ShopsController < ApplicationController
       flash.now[:alert] = '店舗情報の投稿に失敗しました。'
       render :new
     end
-  end
-
-  def show
-  end
-
-  def index
-    @shops = Shop.order(created_at: :desc).page(params[:page]).per(5)
   end
 
   private

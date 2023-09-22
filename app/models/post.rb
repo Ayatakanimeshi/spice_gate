@@ -12,11 +12,11 @@ class Post < ApplicationRecord
   
   mount_uploader :curry_img, CurryImageUploader
 
-  def self.ransackable_attributes(auth_object = nil)
+  def self.ransackable_attributes(_auth_object = nil)
     ["shop_prefecture", "spiciness"]
   end
 
-  def self.ransackable_associations(auth_object = nil)
+  def self.ransackable_associations(_auth_object = nil)
     ["shop", "user"]
   end
 end
