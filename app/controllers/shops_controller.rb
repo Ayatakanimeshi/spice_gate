@@ -6,8 +6,7 @@ class ShopsController < ApplicationController
     @shops = Shop.order(created_at: :desc).page(params[:page]).per(5)
   end
 
-  def show
-  end
+  def show; end
 
   def new
     @shop = Shop.new
