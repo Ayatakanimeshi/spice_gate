@@ -58,16 +58,3 @@
     <%= render 'shared/search_form', url: posts_path, q: @q %>
   </div>
 </div>
-
-<style>
-  #mobile-search {
-    width: 100%; /* 画面の横幅いっぱいに広がるように設定 */
-    transform-origin: top left;
-    transform: rotateZ(-90deg);
-    transition: all .3s ease;
-  }
-
-  #mobile-search.is-active {
-    transform: rotateZ(0deg);
-  }
-</style>

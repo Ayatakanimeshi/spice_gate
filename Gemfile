@@ -51,7 +51,7 @@ gem 'aws-sdk-s3'
 
 gem 'fog-aws'
 
-
+gem 'meta-tags'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

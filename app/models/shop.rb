@@ -1,13 +1,13 @@
 class Shop < ApplicationRecord
-    has_many :posts, dependent: :destroy
+  has_many :posts, dependent: :destroy
 
-    validates :name, presence: true
-    validates :prefecture, presence: true
-    validates :latitude, :longitude, presence: true
+  validates :name, presence: true
+  validates :prefecture, presence: true
+  validates :latitude, :longitude, presence: true
 
-    mount_uploader :shop_img, ShopImgUploader
+  mount_uploader :shop_img, ShopImgUploader
 
-    enum prefecture: {
+  enum prefecture: {
   hokkaido: 0, aomori: 1, iwate: 2, miyagi: 3, akita: 4, yamagata: 5, fukushima: 6, 
   ibaraki: 7, tochigi: 8, gunma: 9, saitama: 10, chiba: 11, tokyo: 12, kanagawa: 13, 
   niigata: 14, toyama: 15, ishikawa: 16, fukui: 17, yamanashi: 18, nagano: 19, gifu: 20, 
@@ -20,11 +20,11 @@ class Shop < ApplicationRecord
 
 DAYS_OF_THE_WEEK = %w[monday tuesday wednesday thursday friday saturday sunday]
 
-    def closed_days
-        closed.split(',') if closed
-    end
+  def closed_days
+    closed.split(',') if closed
+  end
 
-    def closed_days=(days)
-        self.closed = days.join(',')
-    end
+  def closed_days=(days)
+    self.closed = days.join(',')
+  end
 end
