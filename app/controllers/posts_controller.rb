@@ -28,7 +28,7 @@ class PostsController < ApplicationController
 
     if @post.save
       flash[:notice] = "投稿に成功しました"
-      redirect_to root_path
+      redirect_to posts_path
     else
       flash.now[:alert] = "投稿に失敗しました"
       render :new

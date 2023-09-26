@@ -33,6 +33,7 @@ gem "jbuilder"
 gem "sorcery"
 
 gem "mini_magick"
+
 gem "carrierwave"
 
 gem "ransack"

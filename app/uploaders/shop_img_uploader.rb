@@ -29,9 +29,8 @@ class ShopImgUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-    version :thumb do
-      process resize_to_fit: [100, 100]
-    end
+    process resize_to_fit: [1000, 1000]
+
 
   # Add an allowlist of extensions which are allowed to be uploaded.
   # For images you might use something like this:
