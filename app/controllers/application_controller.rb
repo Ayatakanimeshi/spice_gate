@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     before_action :require_login
     before_action :set_search
-    before_action :set_meta_tags
+    before_action :set_default_meta_tags
 
     private
     
@@ -17,9 +17,14 @@ class ApplicationController < ActionController::Base
         @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
     end
 
-    def set_meta_tags
+    def set_default_meta_tags
         set_meta_tags default_meta_tags
     end
+
+    def default_meta_tags
+        { title: 'Spica Gate' }
+    end
+    
     
     helper_method :current_user
 end
