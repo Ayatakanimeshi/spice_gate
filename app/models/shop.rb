@@ -3,7 +3,6 @@ class Shop < ApplicationRecord
 
   validates :name, presence: true
   validates :prefecture, presence: true
-  validates :latitude, :longitude, presence: true
 
   mount_uploader :shop_img, ShopImgUploader
 
@@ -17,8 +16,10 @@ class Shop < ApplicationRecord
   kumamoto: 42, oita: 43, miyazaki: 44, kagoshima: 45, okinawa: 46
 }
 
+  geocoded_by :address
+  after_validation :geocode, if: ->(obj){ obj.address.present? and obj.will_save_change_to_address? }
 
-DAYS_OF_THE_WEEK = %w[monday tuesday wednesday thursday friday saturday sunday]
+  DAYS_OF_THE_WEEK = %w[monday tuesday wednesday thursday friday saturday sunday]
 
   def closed_days
     closed.split(',') if closed
@@ -27,4 +28,5 @@ DAYS_OF_THE_WEEK = %w[monday tuesday wednesday thursday friday saturday sunday]
   def closed_days=(days)
     self.closed = days.join(',')
   end
+  
 end

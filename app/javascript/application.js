@@ -115,3 +115,26 @@ document.addEventListener("turbo:load", function () {
     initMap();
   }
 });
+
+// 住所から緯度と経度を取得する関数
+function geocodeAddress(geocoder, address) {
+  geocoder.geocode({ address: address }, function (results, status) {
+    if (status === "OK") {
+      const latitude = results[0].geometry.location.lat();
+      const longitude = results[0].geometry.location.lng();
+      document.getElementById("shop_latitude").value = latitude;
+      document.getElementById("shop_longitude").value = longitude;
+    } else {
+      alert("ジオコードが成功しませんでした: " + status);
+    }
+  });
+}
+
+// フォームの送信イベントリスナー
+document.getElementById("yourForm").addEventListener("submit", function (e) {
+  e.preventDefault(); // フォームの送信を一時停止
+  const address = document.getElementById("shop_address").value;
+  const geocoder = new google.maps.Geocoder();
+  geocodeAddress(geocoder, address);
+  e.target.submit(); // フォームの送信を再開
+});

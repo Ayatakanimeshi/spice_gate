@@ -14,22 +14,35 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
-
-    # 以下のブラウザの位置情報を取得するコードは不要になります。
-    # なぜなら、その位置情報は既にJavaScriptで取得され、hidden_fieldに設定されているためです。
-
-    # @shop.latitude = params[:latitude]
-    # @shop.longitude = params[:longitude]
-
     if @shop.save
+      Rails.logger.info "Shop saved successfully"
+      address = @shop.address
+      results = Geocoder.search(address)
+      # Geocoderの結果をログに出力
+      Rails.logger.info "Geocoder results: #{results.inspect}"
+      if results.present?
+        coordinates = results.first.coordinates
+        # 座標をログに出力
+        Rails.logger.info "Coordinates: #{coordinates.inspect}"
+        Rails.logger.info "Before update: #{@shop.latitude}, #{@shop.longitude}"
+        @shop.update(latitude: coordinates[0], longitude: coordinates[1])
+        Rails.logger.info "After update: #{@shop.latitude}, #{@shop.longitude}"
+      else
+        # Geocoderが結果を返さなかった場合のログ出力
+        Rails.logger.info "No results from Geocoder"
+      end
       flash[:notice] = '店舗情報を投稿しました。'
       redirect_to new_post_path
     else
+      Rails.logger.info "Failed to save shop"
+      Rails.logger.info @shop.errors.full_messages
       flash.now[:alert] = '店舗情報の投稿に失敗しました。'
       render :new
     end
   end
-
+  
+  
+  
   private
 
   def set_shop
@@ -37,6 +50,6 @@ class ShopsController < ApplicationController
   end
 
   def shop_params
-    params.require(:shop).permit(:name, :prefecture, :business_hour, :shop_img, :latitude, :longitude, closed_days: [])
+    params.require(:shop).permit(:name, :prefecture, :business_hour, :shop_img, :latitude, :longitude, :address, closed_days: [])
   end      
 end
