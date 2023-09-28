@@ -23,7 +23,7 @@ module ApplicationHelper
         ],
         og: {
           site_name: :site,
-          title: :title,
+          title: 'Spice Gate'
           description: :description,
           type: 'website',
           url: request.original_url,
@@ -32,10 +32,9 @@ module ApplicationHelper
         },
         twitter: {
           card: 'summary_large_image',
-          image: image_url('ogp.png'),
+          image: image_url('ogp.png', host: 'https://spice-gate-a5b0ea4c3952.herokuapp.com')
         }
       }
     end
 
 end
-  

@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= display_meta_tags default_meta_tags %>
 
     <!-- FontAwesomeのCDNリンクを追加 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -17,6 +18,8 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_include_tag 'application', "data-turbo-track": "reload" %>
     <script src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY'] %>"></script>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="<%= image_url('ogp.png') %>">
   </head>
 
   <body class="flex flex-col items-stretch min-h-screen">

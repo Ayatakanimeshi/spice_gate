@@ -2,6 +2,6 @@
   <h2 class="text-xl md:text-2xl font-bold text-yellow-600 mb-2 tracking-wide font-mono"><i class="fas fa-store"></i> <%= link_to shop.name, shop_path(shop) %></h2>
   <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt"></i> <%= t('shops.index.prefecture', prefecture: t("activerecord.attributes.shop.prefectures.#{shop.prefecture}")) %></p>
   <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-clock"></i> <%= t('shops.index.business_hour', business_hour: shop.business_hour) %></p>
-  <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-calendar-times"></i> <%= t('shops.index.closed', closed: shop.closed_days.map { |day| t("activerecord.attributes.shop.days_of_week.#{day}") }.join(", ")) %></p>
+  <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-calendar-times"></i> <%= t('shops.index.closed', closed: (shop.closed_days || []).map { |day| t("activerecord.attributes.shop.days_of_week.#{day}") }.join(", ")) %></p>
   <%= image_tag shop.shop_img.url, class: "w-full h-auto rounded-lg shadow-lg" if shop.shop_img.present? %>
 </div>
