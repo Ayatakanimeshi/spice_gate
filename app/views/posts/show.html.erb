@@ -1,7 +1,17 @@
+<% set_meta_tags default_meta_tags(post: @post) %>
 <div class="flex justify-center items-center mt-6 md:mt-48 mx-auto">
   <div class="w-full md:max-w-xl">
     <div class="text-center mb-4 border-2 border-yellow-500 p-4 bg-yellow-100 rounded-lg shadow-md">
-      <h1 class="text-3xl md:text-4xl font-bold text-yellow-600 tracking-wide font-mono mb-6"><i class="fas fa-utensils mr-2"></i><%= @post.title %></h1>
+      <div class="flex justify-between items-center mb-6">
+        <div class="text-center flex-grow">
+          <h1 class="text-3xl md:text-4xl font-bold text-yellow-600 tracking-wide font-mono inline-block">
+            <i class="fas fa-utensils mr-2"></i><%= @post.title %>
+          </h1>
+        </div>
+        <a href="https://twitter.com/intent/tweet?text=<%= "#{@post.user.name}さんが#{@post.shop.name}の#{@post.title}を食べたよ！ナイスカリー！🍛" %>&url=<%= post_url(@post) %>" target="_blank" rel="noopener noreferrer" class="text-blue-500 text-lg ml-4">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
       <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-user mr-1"></i> 投稿者: <%= @post.user.name %></p>
       <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt mr-1"></i> <%= t('activerecord.attributes.post.shop_prefecture') %>：<%= t("activerecord.attributes.post.shop_prefectures.#{@post.shop_prefecture}") %></p>
       <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-pepper-hot mr-1"></i> <%= t('activerecord.attributes.post.spiciness') %>：<%= t("activerecord.attributes.post.spicinesses.#{@post.spiciness}") %></p>

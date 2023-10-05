@@ -9,10 +9,17 @@
       <% else %>
         <% @posts.each do |post| %>
           <div class="border-2 border-yellow-500 p-4 mb-6 mt-6 bg-yellow-100 rounded-lg shadow-md">
-            <h2 class="text-2xl font-bold text-yellow-600 mb-2 tracking-wide font-mono">
-              <i class="fas fa-utensils "></i>
-              <%= link_to post.title, post_path(post) %>
-            </h2>
+            <div class="flex justify-between items-center mb-2">
+              <div class="text-center flex-grow">
+                <h2 class="text-2xl font-bold text-yellow-600 tracking-wide font-mono inline-block">
+                  <i class="fas fa-utensils"></i>
+                  <%= link_to post.title, post_path(post) %>
+                </h2>
+              </div>
+              <a href="https://twitter.com/intent/tweet?text=<%= "#{post.user.name}さんが#{post.shop.name}の#{post.title}を食べたよ！ナイスカリー！🍛" %>&url=<%= post_url(post) %>" target="_blank" rel="noopener noreferrer" class="text-blue-500 text-lg">
+                <i class="fab fa-twitter"></i>
+              </a>
+            </div>
             <p class="text-base md:text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-user"></i> 投稿者: <%= post.user.name %></p>
             <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-store"></i> <%= t('activerecord.attributes.post.shop') %>：<%= link_to post.shop.name, shop_path(post.shop) %></p>
             <p class="text-lg text-gray-800 mb-2 font-semibold"><i class="fas fa-map-marker-alt"></i> <%= t('posts.index.shop_prefecture', shop_prefecture: t("activerecord.attributes.post.shop_prefectures.#{post.shop_prefecture}")) %></p>

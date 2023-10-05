@@ -7,8 +7,8 @@ module ApplicationHelper
     end
   end
 
-  def default_meta_tags
-    {
+  def default_meta_tags(post: nil)
+    base_meta = {
       site: 'Spice Gate',
       reverse: true,
       charset: 'utf-8',
@@ -37,5 +37,24 @@ module ApplicationHelper
         image: image_url('ogp.png')
       }
     }
+
+    return base_meta unless post
+
+    # 投稿データがある場合のメタタグ設定
+    post_meta = {
+      og: {
+        title: post.title,
+        description: "スパイスカレーに愛を込めて", # 必要に応じて投稿データから取得
+        type: 'article',
+        url: post_url(post),
+        image: post.curry_img.present? ? image_url(post.curry_img.url) : image_url('ogp.png')
+      },
+      twitter: {
+        card: 'summary_large_image',
+        image: post.curry_img.present? ? image_url(post.curry_img.url) : image_url('ogp.png')
+      }
+    }
+
+    base_meta.deep_merge(post_meta)
   end
 end
