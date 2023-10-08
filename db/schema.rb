@@ -10,7 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_09_27_140908) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_06_110045) do
+  create_table "favorites", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "shop_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["shop_id"], name: "index_favorites_on_shop_id"
+    t.index ["user_id", "shop_id"], name: "index_favorites_on_user_id_and_shop_id", unique: true
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "shop_id", null: false
@@ -53,6 +63,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_09_27_140908) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "favorites", "shops"
+  add_foreign_key "favorites", "users"
   add_foreign_key "posts", "shops"
   add_foreign_key "posts", "users"
 end
