@@ -56,6 +56,8 @@ gem 'meta-tags'
 
 gem 'geocoder'
 
+gem 'trestle'
+
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
 
